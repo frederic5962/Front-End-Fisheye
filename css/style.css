@@ -37,14 +37,35 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: 10px 0 10px 0;
 }
 
-.photographer_section article h2 {
+.location {
+    color: #901C1C;
+    font-weight : 400;
+    font-size: 13px;     
+}
+
+.photographer_section article p {
+    font-weight: 400;
+     margin: 10px;
+
+}
+
+
+.photographer_section article h2  {
     color: #D3573C;
+    font-weight: 400;
     font-size: 36px;
+    margin: 10px;
 }
 
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    border-radius: 50%;   
 }
+.prix {
+ color: #757575;
+}
+
