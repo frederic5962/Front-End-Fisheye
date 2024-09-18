@@ -1,46 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
     <title>Fisheye - photographe</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
+      <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()">
+          Contactez-moi
+        </button>
       </div>
     </main>
     <div id="contact_modal">
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="image close"/>
+          <img
+            src="assets/icons/close.svg"
+            onclick="closeModal()"
+            alt="image close"
+          />
         </header>
         <form>
           <div>
             <label for="prenom">Prénom</label>
-            <input class="input" type="text" id="prenom" placeholder=""/>
+            <input class="input" type="text" id="prenom" placeholder="" />
           </div>
           <div>
             <label for="nom">Nom</label>
-            <input class="input" type="text" id="nom" placeholder=""/>
+            <input class="input" type="text" id="nom" placeholder="" />
           </div>
           <div>
             <label for="email">Email</label>
-            <input class="input" type="email" id="email" placeholder=""/>
+            <input class="input" type="email" id="email" placeholder="" />
           </div>
           <div>
             <label for="message">Votre message</label>
             <textarea class="input" id="message" placeholder=""></textarea>
           </div>
-          <button class="btn_envoyer" onclick="closeModal()" type="button">Envoyer</button>
+          <button class="btn_envoyer" onclick="closeModal()" type="button">
+            Envoyer
+          </button>
         </form>
       </div>
     </div>
@@ -48,4 +59,3 @@
     <script type="module" src="/scripts/pages/photographer.js" defer></script>
   </body>
 </html>
-
