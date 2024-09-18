@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <title>Fisheye - photographe</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -18,26 +18,34 @@
       </div>
     </main>
     <div id="contact_modal">
-			<div class="modal">
-				<header>
+      <div class="modal">
+        <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="image close"/>
         </header>
-				<form>
-					<div>
-            <input class="input" type="text" id="prenom" placeholder="Prénom"/>
-					</div>
-					<div>
-            <input class="input" type="text" id="nom" placeholder="nom"/>
-					</div>
-					<div>
-            <input class="input" type="email" id="email" placeholder="email"/>
-					</div>
-          <button class="contact_button" onclick="closeModal()">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+        <form>
+          <div>
+            <label for="prenom">Prénom</label>
+            <input class="input" type="text" id="prenom" placeholder=""/>
+          </div>
+          <div>
+            <label for="nom">Nom</label>
+            <input class="input" type="text" id="nom" placeholder=""/>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input class="input" type="email" id="email" placeholder=""/>
+          </div>
+          <div>
+            <label for="message">Votre message</label>
+            <textarea class="input" id="message" placeholder=""></textarea>
+          </div>
+          <button class="btn_envoyer" onclick="closeModal()" type="button">Envoyer</button>
+        </form>
+      </div>
+    </div>
+    <script src="/scripts/utils/contactForm.js" defer></script>
+    <script type="module" src="/scripts/pages/photographer.js" defer></script>
   </body>
 </html>
+

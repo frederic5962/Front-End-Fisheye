@@ -16,13 +16,15 @@ async function displayData(photographers) {
 
     photographers.forEach((photographer) => {
         const photographerModel = photographerTemplate(photographer);
-        const userCardDOM = photographerModel.getUserCardDOM(); // Assurez-vous que c'est bien getUserCardDOM
-        photographersSection.appendChild(userCardDOM);
+        const userCardDOM = photographerModel.getUserCardDOM();
+        const link = document.createElement('a');
+        link.href = `photographer.html?id=${photographer.id}`;
+        link.appendChild(userCardDOM);
+        photographersSection.appendChild(link);
     });
 }
 
 async function init() {
-    // Récupère les datas des photographes
     const { photographers } = await getPhotographers();
     displayData(photographers);
 }
