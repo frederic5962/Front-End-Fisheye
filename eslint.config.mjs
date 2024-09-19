@@ -1,5 +1,9 @@
-import prettier from 'eslint-config-prettier'
-import prettierPlugin from 'eslint-plugin-prettier'
+import globals from 'globals';
+import tsParser from '@typescript-eslint/parser';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import prettierPlugin from 'eslint-plugin-prettier';
+import prettierConfig from 'eslint-config-prettier';
+import pluginJs from '@eslint/js';
 
 export default [
   {
@@ -19,4 +23,4 @@ export default [
     },
     extends: ['prettier'],
   },
-]
+];
