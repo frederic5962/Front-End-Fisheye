@@ -14,7 +14,7 @@ export function photographerTemplate(data) {
         <p class="location">${city}, ${country}</p>
         <p>${tagline}</p>
         <p class="prix">${price}€/jour</p>
-        <a href="#" class="no-underline">voir les oeuvres</a>
+        <a href="#" style="text-decoration: none;">voir les oeuvres</a>
       `
     return article
   }

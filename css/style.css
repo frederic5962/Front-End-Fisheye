@@ -1,5 +1,10 @@
 @import url('photographer.css');
 
+*  {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
 body {
   font-family: 'DM Sans', sans-serif;
   margin: 0;
@@ -66,6 +71,3 @@ h1 {
   color: #757575;
 }
 
-.no-underline {
-  text-decoration: none;
-}
