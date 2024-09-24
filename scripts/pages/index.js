@@ -11,10 +11,11 @@ async function getPhotographers() {
   }
 }
 
-async function displayData(photographers) {
+async function displayPhotographers() {
+  const { photographers } = await getPhotographers();
   const photographersSection = document.querySelector('.photographer_section');
 
-  photographers.forEach((photographer) => {
+  photographers.forEach(photographer => {
     const photographerModel = photographerTemplate(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
     const link = document.createElement('a');
@@ -25,9 +26,6 @@ async function displayData(photographers) {
   });
 }
 
-async function init() {
-  const { photographers } = await getPhotographers();
-  displayData(photographers);
-}
-
-init();
+document.addEventListener('DOMContentLoaded', () => {
+  displayPhotographers();
+});

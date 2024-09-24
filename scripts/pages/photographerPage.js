@@ -1,28 +1,18 @@
+import { fetchData } from '../utils/fetchData.js';
+import { getPhotographerIdFromURL, getPhotographerURL } from '../utils/urlUtils.js';
 import { photographerTemplate } from '../templates/photographerTemplate.js';
 
-function getPhotographerURL() {
-  const fullURL = window.location.href;
-  console.log('Full URL:', fullURL);
-  return fullURL;
-}
-
-function getPhotographerIdFromURL() {
-  const params = new URLSearchParams(window.location.search);
-  const photographerId = params.get('id');
-  console.log('URL Parameters:', params.toString());
-  console.log('Photographer ID:', photographerId);
-  return photographerId;
-}
-
-async function getPhotographers() {
-  try {
-    const response = await fetch('./data/photographers.json');
-    const data = await response.json();
-    return { photographers: data.photographers };
-  } catch (error) {
-    console.error('Error fetching photographers:', error);
-    return { photographers: [] };
+async function getPhotographerAndMediaById(id) {
+  const data = await fetchData('./data/photographers.json');
+  if (data) {
+    console.log('Data fetched:', data);
+    const photographer = data.photographers.find(p => p.id == id);
+    const media = data.media.filter(m => m.photographerId == id);
+    console.log('Photographer:', photographer);
+    console.log('Media:', media);
+    return { photographer, media };
   }
+  return { photographer: null, media: [] };
 }
 
 async function displayPhotographerData() {
@@ -32,13 +22,10 @@ async function displayPhotographerData() {
     return;
   }
   console.log('Photographer ID from URL:', photographerId);
-  const { photographers } = await getPhotographers();
 
-  console.log('Photographers data:', photographers);
+  const { photographer, media } = await getPhotographerAndMediaById(photographerId);
 
-  const photographer = photographers.find((p) => p.id == Number(photographerId));
-
-  if (photographer) {
+  if (photographer && media.length > 0) {
     const photographerModel = photographerTemplate(photographer);
     const photographerSection = document.querySelector('.photographer_section');
     if (!photographerSection) {
@@ -52,8 +39,16 @@ async function displayPhotographerData() {
     const urlElement = document.createElement('p');
     urlElement.textContent = `Photographer URL: ${photographerURL}`;
     photographerSection.appendChild(urlElement);
+
+    // Afficher les médias du photographe
+    media.forEach(m => {
+      const mediaElement = document.createElement('img');
+      mediaElement.src = `assets/media/${m.image}`;
+      mediaElement.alt = m.title;
+      photographerSection.appendChild(mediaElement);
+    });
   } else {
-    console.error('Photographer not found');
+    console.error('Photographer ou media non trouvé');
   }
 }
 

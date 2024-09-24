@@ -1,12 +1,12 @@
 export function photographerTemplate(data) {
-  const { name, portrait, city, country, tagline, price } = data
+  const { name, portrait, city, country, tagline, price } = data;
 
-  console.log(data)
+  console.log(data);
 
-  const picture = `assets/photographers/${portrait}`
+  const picture = `assets/photographers/${portrait}`;
 
   function getUserCardDOM() {
-    const article = document.createElement('article')
+    const article = document.createElement('article');
 
     article.innerHTML = `	
         <img src="${picture}" alt="Photo de ${name}">
@@ -14,10 +14,9 @@ export function photographerTemplate(data) {
         <p class="location">${city}, ${country}</p>
         <p>${tagline}</p>
         <p class="prix">${price}€/jour</p>
-        <a href="#" style="text-decoration: none;">voir les oeuvres</a>
-      `
-    return article
+      `;
+    return article;
   }
 
-  return { name, picture, getUserCardDOM }
+  return { name, picture, getUserCardDOM };
 }
