@@ -1,4 +1,5 @@
 import { photographerTemplate } from '../templates/photographerTemplate.js';
+import { fetchPhotographersData } from '../utils/dataUtils.js';
 
 function getPhotographerURL() {
   const fullURL = window.location.href;
@@ -16,7 +17,7 @@ function getPhotographerIdFromURL() {
 
 async function getPhotographers() {
   try {
-    const response = await fetch('./data/photographers.json');
+    const response = await fetch('../data/photographers.json');
     const data = await response.json();
     return { photographers: data.photographers };
   } catch (error) {
@@ -31,30 +32,30 @@ async function displayPhotographerData() {
     console.error('No photographer ID found in URL');
     return;
   }
-  console.log('Photographer ID from URL:', photographerId);
-  const { photographers } = await getPhotographers();
 
-  console.log('Photographers data:', photographers);
+  try {
+    const data = await fetchPhotographersData();
+    const photographer = data.photographers.find((p) => p.id === parseInt(photographerId, 10)); 
 
-  const photographer = photographers.find((p) => p.id == Number(photographerId));
-
-  if (photographer) {
-    const photographerModel = photographerTemplate(photographer);
-    const photographerSection = document.querySelector('.photographer_section');
-    if (!photographerSection) {
-      console.error('Photographer section not found');
-      return;
-    }
+    if (photographer) {
+      const photographerModel = photographerTemplate(photographer);
+      const photographerSection = document.querySelector('.photographer_section');
+      if (!photographerSection) {
+        console.error('Photographer section not found');
+        return;
+      }
     photographerSection.appendChild(photographerModel.getUserCardDOM());
 
     // Afficher l'URL du photographe
-    const photographerURL = getPhotographerURL();
-    const urlElement = document.createElement('p');
-    urlElement.textContent = `Photographer URL: ${photographerURL}`;
-    photographerSection.appendChild(urlElement);
+    // const photographerURL = getPhotographerURL();
+    // const urlElement = document.createElement('p');
+    // urlElement.textContent = `Photographer URL: ${photographerURL}`;
+    // photographerSection.appendChild(urlElement);
   } else {
     console.error('Photographer not found');
   }
+} catch (error) {
+  console.error('Error fetching photographer data:', error);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -63,3 +64,5 @@ document.addEventListener('DOMContentLoaded', () => {
     displayPhotographerData();
   }
 });
+}
+

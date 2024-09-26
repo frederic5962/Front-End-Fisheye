@@ -1,7 +1,7 @@
 export function photographerTemplate(data) {
   const { name, portrait, city, country, tagline, price } = data;
 
-  console.log(data);
+  
 
   const picture = `assets/photographers/${portrait}`;
 

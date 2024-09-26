@@ -1,12 +1,12 @@
 import { photographerTemplate } from '../templates/photographerTemplate.js';
+import { fetchPhotographersData } from '../utils/dataUtils.js';
 
 async function getPhotographers() {
   try {
-    const response = await fetch('./data/photographers.json');
-    const data = await response.json();
+    const data = await fetchPhotographersData();
     return { photographers: data.photographers };
   } catch (error) {
-    console.error('Error fetching photographers:', error);
+    console.error('Erreur lors de la récupération des photographes :', error);
     return { photographers: [] };
   }
 }
@@ -20,7 +20,6 @@ async function displayPhotographers() {
     const userCardDOM = photographerModel.getUserCardDOM();
     const link = document.createElement('a');
     link.href = `photographer.html?id=${photographer.id}`;
-    console.log('Generated link:', link.href); // Vérifiez les liens générés
     link.appendChild(userCardDOM);
     photographersSection.appendChild(link);
   });
