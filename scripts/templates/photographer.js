@@ -28,10 +28,7 @@ async function getPhotographers() {
 
 async function displayPhotographerData() {
   const photographerId = getPhotographerIdFromURL();
-  if (!photographerId) {
-    console.error('No photographer ID found in URL');
-    return;
-  }
+
 
   try {
     const data = await fetchPhotographersData();

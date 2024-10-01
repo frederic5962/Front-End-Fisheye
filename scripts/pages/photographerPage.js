@@ -32,10 +32,6 @@ async function getMediaByPhotographerId(id) {
 // Fonction principale pour afficher les données
 async function displayPhotographerData() {
   const photographerId = getPhotographerIdFromURL();
-  if (!photographerId) {
-    console.error('No photographer ID found in URL');
-    return;
-  }
 
   const photographer = await getPhotographerById(photographerId);
   const media = await getMediaByPhotographerId(photographerId);

@@ -1,13 +1,14 @@
 import { photographerTemplate } from '../templates/photographerTemplate.js';
 import { fetchPhotographersData } from '../utils/dataUtils.js';
 
-async function getPhotographers() {
+async function getPhotographerById(id) {
   try {
     const data = await fetchPhotographersData();
-    return { photographers: data.photographers };
+    const photographer = data.photographers.find(p => p.id === id);
+    return photographer; 
   } catch (error) {
-    console.error('Erreur lors de la récupération des photographes :', error);
-    return { photographers: [] };
+    console.error('Erreur lors de la récupération du photographe :', error);
+    return null; 
   }
 }
 

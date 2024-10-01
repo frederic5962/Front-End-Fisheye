@@ -72,3 +72,17 @@ h1 {
   color: #757575;
 }
 
+.photographer-card .location {
+  font-size: 14px;
+  color: #901c1c; /* Couleur rouge */
+}
+
+.photographer-card .tagline {
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.photographer-card .price {
+  font-weight: bold;
+  margin-top: 10px;
+}
