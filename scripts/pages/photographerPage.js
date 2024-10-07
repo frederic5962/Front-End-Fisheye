@@ -19,8 +19,7 @@ async function displayPhotographerData() {
   }
 
   const media = await getMedia(); // Attendre la résolution de la promesse
-  const photographerMedia = media.filter(m => m.photographerId === photographerId); // Correction de la fonction de rappel
-
+  const photographerMedia = media.filter(m => m.photographerId === photographerId); 
   if (photographerMedia.length === 0) {
     console.error('No media found for this photographer');
   }

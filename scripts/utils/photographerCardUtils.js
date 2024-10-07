@@ -6,8 +6,7 @@ export function createPhotographerCard(data, options) {
   const img = document.createElement('img');
   img.setAttribute('src', picture);  
 
-  img.setAttribute('alt', `Photo de ${name}`); 
- // Ajouter l'attribut alt
+  img.setAttribute('alt', `Photo de ${name}`);  // Ajouter l'attribut alt
   const h2 = document.createElement('h2');
   h2.textContent = name;
   article.appendChild(img);
