@@ -1,50 +1,100 @@
-@import url("photographer.css");
-
 body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  margin: 0;
 }
 
+.index-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+}
 
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
+a {
+  text-decoration: none;
 }
 
 h1 {
-    color: #901C1C;
-    margin-right: 100px;
+  color: #901c1c;
+  margin-right: 100px;
+  margin: 0 auto;
 }
 
 .logo {
-    height: 50px;
-    margin-left: 100px;
+  height: 50px;
+  margin-left: 100px;
 }
 
 .photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  margin-top: 100px;
 }
 
 .photographer_section article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  color: black;
 }
 
 .photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
+  color: #d3573c;
+  font-size: 36px;
+  margin-bottom: 10px;
+  line-height: 1.2; /* Ajustez la valeur pour l'alignement vertical */
 }
 
 .photographer_section article img {
-    height: 200px;
-    width: 200px;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  
+}
+
+.photographer_section article .location {
+  /* Cible l'élément avec la classe "location" */
+  font-size: 16px;
+  margin-bottom: 10px; /* Ajoute un espacement en dessous du lieu */
+}
+
+.photographer_section article p {
+  /* Cible tous les éléments <p> dans l'article */
+  font-size: 14px;
+  margin-bottom: 5px; /* Ajoute un espacement en dessous de la tagline et du prix */
+  line-height: 1.4; /* Ajustez la valeur pour l'alignement vertical */
+}
+
+.photographer_section article .prix {
+  /* Cible l'élément avec la classe "prix" */
+  font-weight: bold;
+}
+
+
+.photographer-profile-img {
+  width: 200px; 
+  height: 200px;
+  object-fit: cover; 
+  border-radius: 50%; 
+}
+
+/* Pour les écrans de moins de 768px (tablettes) */
+@media (max-width: 768px) {
+  .photographer_section {
+    grid-template-columns: 1fr 1fr; /* 2 colonnes */
+  }
+}
+
+/* Pour les écrans de moins de 480px (mobiles) */
+@media (max-width: 480px) {
+  .photographer_section {
+    grid-template-columns: 1fr; /* 1 colonne */
+  }
 }
