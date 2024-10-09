@@ -1,13 +1,13 @@
 import { Lightbox } from '../utils/lightbox.js';
 
 export function createMediaGallery(media) {
-  const gallery = document.createElement('section'); 
+  const gallery = document.querySelector('.photograph-gallery'); // Récupère la section existante
 
   media.forEach(mediaItem => {
-    const mediaElement = document.createElement(mediaItem.image ? 'img' : 'video'); 
-    mediaElement.src = `assets/photos/${mediaItem.photographerId}/${mediaItem.image || mediaItem.video}`; 
+    const mediaElement = document.createElement(mediaItem.image ? 'img' : 'video');
+    mediaElement.src = `assets/photos/${mediaItem.photographerId}/${mediaItem.image || mediaItem.video}`;
     mediaElement.alt = mediaItem.title;
-    mediaElement.classList.add('lightbox-link'); 
+    mediaElement.classList.add('lightbox-link');
 
     // Créer un élément figure pour contenir le média et ses informations
     const figure = document.createElement('figure');
@@ -27,6 +27,4 @@ export function createMediaGallery(media) {
     figure.appendChild(figcaption); // Ajoute le figcaption au figure
     gallery.appendChild(figure); // Ajoute le figure à la galerie
   });
-
-  return gallery;
 }

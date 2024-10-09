@@ -13,35 +13,33 @@ async function displayPhotographerData() {
     return;
   }
 
-  const media = await getMedia(); 
+  const media = await getMedia();
 
   // Gestion des erreurs pour getMedia()
   if (!media) {
     console.error('Erreur lors de la récupération des médias');
-    return; 
+    return;
   }
 
-  const photographerMedia = media.filter(m => m.photographerId === photographerId); 
+  const photographerMedia = media.filter(m => m.photographerId === photographerId);
   if (photographerMedia.length === 0) {
     console.error('No media found for this photographer');
   }
 
-  const photographerProfile = createPhotographerProfile(photographer); 
-  const mediaGallery = createMediaGallery(photographerMedia); 
+  const photographerProfile = createPhotographerProfile(photographer);
 
   const photographerSection = document.querySelector('.photographer_section');
-  photographerSection.appendChild(photographerProfile); 
+  photographerSection.appendChild(photographerProfile);
+  
+  createMediaGallery(photographerMedia); 
 
-  const gallerySection = document.querySelector('.photograph-gallery');
-  gallerySection.appendChild(mediaGallery);
-
-  Lightbox.init(); 
+  Lightbox.init();
 }
 
 function getPhotographerIdFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
   const photographerId = parseInt(urlParams.get('id'));
-  return photographerId; 
+  return photographerId;
 }
 
 displayPhotographerData();
