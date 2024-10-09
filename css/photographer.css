@@ -8,8 +8,8 @@
   align-items: center;
   padding: 20px 100px;
   background-color: #fafafa;
-  height: 300px;
-  margin: 0 100px;
+  height: 100px; /* Hauteur réduite */
+  margin: 0 50px; /* Marges réduites */
 }
 
 .contact_button {
@@ -25,80 +25,47 @@
   cursor: pointer;
 }
 
-.modal {
-  border-radius: 5px;
-  background-color: #db8876;
-  width: 50%;
+/* ... (styles du modal et du formulaire) ... */
+
+.photographer-profile-img {
+  width: 150px; 
+  height: 150px;
+  object-fit: cover; 
+  border-radius: 50%; 
+  margin-bottom: 20px; 
+}
+
+/* ... (styles du profil du photographe) ... */
+
+.photograph-gallery { 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  gap: 20px; 
+}
+
+.photograph-gallery figure { /* Conteneur pour chaque média */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 35px;
-  margin: auto;
+  flex-direction: column; /* Empiler le média et les informations verticalement */
+  align-items: center; /* Centrer les éléments horizontalement */
 }
 
-.modal header {
-  justify-content: space-between;
-  width: 100%;
+.photograph-gallery img, 
+.photograph-gallery video { /* Style des médias */
+  max-width: 100%;
+  height: 300px;
+  object-fit: cover; 
 }
 
-.modal header img {
-  cursor: pointer;
-}
-
-.modal header h2 {
-  font-size: 64px;
-  font-weight: normal;
+.photograph-gallery figcaption { /* Style pour le titre et les likes */
   text-align: center;
 }
 
-form {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-}
+/* ... (styles de la galerie et de la lightbox) ... */
 
-form label {
-  color: #312e2e;
-  font-size: 36px;
-}
-
-form div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: self-start;
-  margin-bottom: 26px;
-}
-
-form input {
-  width: 100%;
-  height: 68px;
-  border: none;
-  border-radius: 5px;
-}
-
-
-.contact_button:hover {
-  background-color: #781414; /* Change la couleur au survol */
-}
-
-form div {
-  /* ... (votre code existant) ... */
-  margin-bottom: 15px; /* Ajuste l'espacement */
-}
-
-form input {
-  /* ... (votre code existant) ... */
-  padding: 10px; /* Ajoute un espacement interne */
-  font-size: 16px; /* Ajuste la taille de la police */
-}
-
-/* Media query pour les écrans de moins de 768px */
+/* Media query */
 @media (max-width: 768px) {
   .photographer-header {
-    padding: 10px 50px; /* Réduit l'espacement */
-    height: 200px; /* Réduit la hauteur */
+    padding: 10px 50px; 
+    height: 100px; /* Hauteur réduite */
   }
 }

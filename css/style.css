@@ -3,6 +3,7 @@ body {
   margin: 0;
 }
 
+/* Header */
 .index-header {
   display: flex;
   flex-direction: row;
@@ -26,6 +27,7 @@ h1 {
   margin-left: 100px;
 }
 
+/* Section des photographes */
 .photographer_section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -47,7 +49,7 @@ h1 {
   color: #d3573c;
   font-size: 36px;
   margin-bottom: 10px;
-  line-height: 1.2; /* Ajustez la valeur pour l'alignement vertical */
+  line-height: 1.2;
 }
 
 .photographer_section article img {
@@ -56,45 +58,32 @@ h1 {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 20px;
-  
 }
 
 .photographer_section article .location {
-  /* Cible l'élément avec la classe "location" */
   font-size: 16px;
-  margin-bottom: 10px; /* Ajoute un espacement en dessous du lieu */
+  margin-bottom: 10px;
 }
 
 .photographer_section article p {
-  /* Cible tous les éléments <p> dans l'article */
   font-size: 14px;
-  margin-bottom: 5px; /* Ajoute un espacement en dessous de la tagline et du prix */
-  line-height: 1.4; /* Ajustez la valeur pour l'alignement vertical */
+  margin-bottom: 5px;
+  line-height: 1.4;
 }
 
 .photographer_section article .prix {
-  /* Cible l'élément avec la classe "prix" */
   font-weight: bold;
 }
 
-
-.photographer-profile-img {
-  width: 200px; 
-  height: 200px;
-  object-fit: cover; 
-  border-radius: 50%; 
-}
-
-/* Pour les écrans de moins de 768px (tablettes) */
+/* Media queries */
 @media (max-width: 768px) {
   .photographer_section {
-    grid-template-columns: 1fr 1fr; /* 2 colonnes */
+    grid-template-columns: 1fr 1fr; 
   }
 }
 
-/* Pour les écrans de moins de 480px (mobiles) */
 @media (max-width: 480px) {
   .photographer_section {
-    grid-template-columns: 1fr; /* 1 colonne */
+    grid-template-columns: 1fr; 
   }
 }

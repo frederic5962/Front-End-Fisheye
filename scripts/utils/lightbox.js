@@ -6,15 +6,15 @@ export class Lightbox {
     Lightbox.instance = this;
   }
 
-  static open(image) {
+  static open(media) { // Modification ici : on prend "media" en paramètre au lieu de "image"
     const lightbox = document.createElement('div');
     lightbox.classList.add('lightbox');
     lightbox.innerHTML = `
-      <div class="lightbox-content">
-        <img src="${image.src}" alt="${image.alt}">
-        <button class="lightbox-close" aria-label="Close">&times;</button>
-      </div>
-    `;
+        <div class="lightbox-content">
+          ${media.tagName === 'IMG' ? `<img src="${media.src}" alt="${media.alt}">` : `<video src="${media.src}" controls></video>`}
+          <button class="lightbox-close" aria-label="Close">&times;</button>
+        </div>
+      `;
     document.body.appendChild(lightbox);
 
     const closeButton = lightbox.querySelector('.lightbox-close');
@@ -34,8 +34,8 @@ export class Lightbox {
     images.forEach(image => {
       image.addEventListener('click', event => {
         event.preventDefault();
-        Lightbox.open(image); // Appeler Lightbox.open()
+        Lightbox.open(image); 
       });
     });
   }
-} 
+}
