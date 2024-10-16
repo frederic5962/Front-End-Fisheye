@@ -1,4 +1,4 @@
-import { createPhotographerCard } from '../utils/photographerCardUtils.js';
+import { createPhotographerCard } from '../templates/photographerCard.js';
 
 
 /**

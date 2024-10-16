@@ -1,4 +1,4 @@
-import { createPhotographerCard } from '../utils/photographerCardUtils';
+import { createPhotographerCard } from '../templates/photographerCard.js';
 
 export function photographerTemplate(data) {
   const options = {

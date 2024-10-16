@@ -1,7 +1,7 @@
 import { createPhotographerProfile } from '../templates/photographerProfile.js';
 import { createMediaGallery } from '../templates/mediaGallery.js';
 import { getPhotographers, getMedia } from '../utils/fetchData.js';
-import { Lightbox } from '../utils/lightbox.js';
+
 
 async function displayPhotographerData() {
   const { photographers } = await getPhotographers();
@@ -31,9 +31,7 @@ async function displayPhotographerData() {
   const photographerSection = document.querySelector('.photographer_section');
   photographerSection.appendChild(photographerProfile);
   
-  createMediaGallery(photographerMedia); 
-
-  Lightbox.init();
+  createMediaGallery(photographerMedia); // Affiche les médias
 }
 
 function getPhotographerIdFromUrl() {
