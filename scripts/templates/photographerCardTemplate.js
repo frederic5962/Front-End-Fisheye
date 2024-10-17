@@ -1,4 +1,4 @@
-import { createPhotographerCard } from '../templates/photographerCard.js';
+ import { createPhotographerCard } from '../templates/photographerCard.js'; 
 
 
 /**
@@ -7,7 +7,7 @@ import { createPhotographerCard } from '../templates/photographerCard.js';
  * @param {Object} data - Les données du photographe, incluant le nom, l'ID, le portrait, la ville, le pays, la tagline, et le prix.
  * @returns {HTMLElement} - L'article HTML représentant la carte de profil du photographe.
  */
-export function getUserCardDOM(data) {
+ export function getUserCardDOM(data) {
   // Options pour la carte du photographe : inclure le lieu, la tagline et le prix
   const options = {
     includeLocation: true,
@@ -16,4 +16,4 @@ export function getUserCardDOM(data) {
   };
   // Appeler la fonction createPhotographerCard pour générer la carte avec les options spécifiées
   return createPhotographerCard(data, options);
-}
+} 

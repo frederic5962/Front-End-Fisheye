@@ -40,4 +40,15 @@ function getPhotographerIdFromUrl() {
   return photographerId;
 }
 
+async function getPhotographerName() {
+  const { photographers } = await getPhotographers();
+  const photographerId = getPhotographerIdFromUrl();
+  const photographer = photographers.find((p) => p.id === photographerId);
+  console.log(photographer.name);
+  return photographer.name;
+}
+
+getPhotographerName();
+
+
 displayPhotographerData();

@@ -33,27 +33,60 @@
 
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" alt="fisheye logo" onclick="window.location.href='index.html';"/>
+      <img
+        src="assets/images/logo.png"
+        class="logo"
+        alt="fisheye logo"
+        onclick="window.location.href='index.html';"
+      />
     </header>
 
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()" type="button">Contactez-moi</button>
-       </div>
-
-      <section  class="photographer_section"></section>
+        <section class="photographer_section">
+          <button class="contact_button" id="openModal">Contactez-moi</button>
+         
+        </section>
+      </div>
       <section class="photograph-gallery"></section>
-       
-     
-    
     </main>
 
-    <div id="contact_modal">
+    <!-- Le Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>
+          CONTACTEZ MOI 
+        </h2>
+        <form id="modalForm">
+          <label for="last_name">Prénom:</label>
+          <input type="text" id="last_name" name="last_name" required />
+          <br /><br />
+          <label for="name">Nom:</label>
+          <input type="text" id="name" name="name" required />
+          <br /><br />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <br /><br />
+          <label for="message">Message:</label>
+          <input type="textarea" id="message" name="message" required />
+          <br /><br />
+          <button type="submit">Envoyer</button>
+        </form>
       </div>
+    </div>
 
     <script type="module" src="/scripts/utils/lightbox.js" defer></script>
-    <script type="module" src="/scripts/pages/photographerPage.js" defer></script>
+    <script
+      type="module"
+      src="/scripts/pages/photographerPage.js"
+      defer
+    ></script>
     <script type="module" src="/scripts/utils/contactForm.js" defer></script>
+    <script type="module" src="/scripts/utils/fetchData.js" defer></script>
+    
+
+ 
+   
   </body>
-  
 </html>
