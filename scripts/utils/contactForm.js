@@ -1,7 +1,7 @@
 // Sélection des éléments
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("openModal");
-var span = document.getElementsByClassName("close")[0];
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("openModal");
+const span = document.getElementsByClassName("close")[0];
 
 // Ouvrir le modal lorsque l'utilisateur clique sur le bouton
 btn.onclick = function() {
@@ -24,10 +24,10 @@ window.onclick = function(event) {
 document.getElementById('modalForm').onsubmit = function(event) {
     event.preventDefault();
     // Récupérer les valeurs du formulaire
-    var lastName = document.getElementById('last_name').value;
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var message = document.getElementById('message').value;
+    const lastName = document.getElementById('last_name').value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
 
 
     // Afficher les valeurs 
