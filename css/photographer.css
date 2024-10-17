@@ -1,3 +1,8 @@
+.logo {
+  height: 50px;
+  margin-left: 100px;
+}
+
 /* Style pour le modal (caché par défaut) */
 .modal {
   display: none;
