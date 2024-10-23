@@ -1,217 +1,88 @@
-.logo {
-  height: 50px;
-  margin-left: 100px;
+
+
+#contact_modal {
+    display: none;
 }
 
-/* Style pour le modal (caché par défaut) */
+.photograph-header {
+    background-color: #FAFAFA;
+    height: 300px;
+    margin: 0 100px;
+}
+
+.photograph-header img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 23px;
+    margin-top: 15px;
+}
+
+ .contact_button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: auto;
 }
 
-/* Contenu du modal */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 30%;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+.modal header {
+    justify-content: space-between;
+    width: 100%;
 }
 
-/* Bouton fermer (croix) */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.modal header img {
+    cursor: pointer;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  cursor: pointer;
+.modal header h2 {
+    font-size: 64px;
+    font-weight: normal;
+    text-align: center;
 }
 
-/* Bouton */
-button {
-  padding: 10px 20px;
-  background-color: #d3573c;
-  color: white;
-  border: none;
-  cursor: pointer;
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-/* button:hover {
-  background-color: #d3573c;
-} */
-
-
-
-.photographer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 100px;
-  background-color: #fafafa;
-  height: 100px; /* Hauteur réduite */
-  margin: 0 50px; /* Marges réduites */
+form label {
+    color: #312E2E;
+    font-size: 36px;
 }
 
-.contact_button {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  padding: 11px;
-  width: 170px;
-  height: 70px;
-  border: none;
-  background-color: #901c1c;
-  border-radius: 5px;
-  cursor: pointer;
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: self-start;
+    margin-bottom: 26px;
 }
 
-/* ... (styles du modal et du formulaire) ... */
-
-.photographer-profile-img {
-  width: 150px; 
-  height: 150px;
-  object-fit: cover; 
-  border-radius: 50%; 
-  margin-bottom: 20px; 
+form input {
+    width: 100%;
+    height: 68px;
+    border: none;
+    border-radius: 5px;
 }
 
-/* ... (styles du profil du photographe) ... */
-
-.photograph-gallery { 
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: rows(3, 1fr);
-  gap: 20px; 
-}
-
-.photograph-gallery figure { /* Conteneur pour chaque média */
-  display: flex;
-  flex-direction: column; /* Empiler le média et les informations verticalement */
-  align-items: center; /* Centrer les éléments horizontalement */
-  cursor: pointer;
-}
-
-.photograph-gallery img, 
-.photograph-gallery video { /* Style des médias */
-  max-width: 100%;
-  height: 350px;
-  width: 351px;
-  object-fit: cover; 
-}
-
-.photograph-gallery figcaption { /* Style pour le titre et les likes */
-  text-align: center;
-}
-
-/* ... (styles de la galerie et de la lightbox) ... */
-
-/* Media query */
-@media (max-width: 768px) {
-  .photographer-header {
-    padding: 10px 50px; 
-    height: 100px; /* Hauteur réduite */
-  }
-}
-
-.lightbox img {
-  max-width: 80%;
-  max-height: 80%;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  object-fit: cover;
-}
-
-.lightbox video {
-  max-width: 80%;
-  max-height: 80%;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  object-fit: cover;
-}
-
-
-.lightbox-close {
-position: absolute;
-top: 10px;
-right: 10px;
-font-size: 50px;
-cursor: pointer;
-color: #901c1c;
-background-color: transparent;
-border: none;
-}
-
-.lightbox-close:hover {
-color: #d3573c;
-}
-
-.lightbox-next {
-position: absolute;
-top: 50%;
-right: 10px;
-font-size: 50px;
-cursor: pointer;
-color: #901c1c;
-background-color: transparent;
-border: none;
-}
-
-.lightbox-next:hover {
-color: #d3573c;
-}
-
-.lightbox-previous {
-position: absolute;
-top: 50%;
-left: 10px;
-font-size: 50px;
-cursor: pointer;
-color: #901c1c;
-background-color: transparent;
-border: none;
-}
-
-.lightbox-previous:hover {
-color: #d3573c;
-}
-
-
-.lightbox-content {
-display: flex;
-justify-content: center;
-align-items: center;
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: white;
-z-index: 9999;
-}
-
-.lightbox-content h2 {
-font-size: 24px;
-color: #901c1c;
-z-index: 9999;
-margin-top: 60%;
-}

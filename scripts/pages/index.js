@@ -1,21 +1,31 @@
-import { getUserCardDOM } from '../templates/photographerCardTemplate.js';
+import { photographerFactory } from '../factory/photographer.js';
 import { getPhotographers } from '../utils/fetchData.js';
 
-async function displayPhotographers() {
-  const { photographers } = await getPhotographers(); // Récupération des données réelles
+async function displayPhotographersData() {
   const photographersSection = document.querySelector('.photographer_section');
-
-  photographers.forEach(photographer => {
-    const userCardDOM = getUserCardDOM(photographer);
-    photographersSection.appendChild(userCardDOM); // Affiche les photographes
-
-    const link = document.createElement('a');
-    link.href = `./photographer.html?id=${photographer.id}`;
-    link.setAttribute('aria-label', `Voir le profil de ${photographer.name}`);// ajout de l'aria-label pour accessibilité
-    link.appendChild(userCardDOM);
-
-    photographersSection.appendChild(link);	
+  const photographers = await getPhotographers();
+  photographers.forEach((photographerData) => {
+    const photographer = photographerFactory(photographerData);
+    const userCardDOM = photographer.getUserCardDOM();
+    photographersSection.appendChild(userCardDOM);
   });
 }
 
-displayPhotographers();
+async function init() {
+  const loader = document.querySelector('.loader');
+  if (loader) {
+    loader.style.display = 'flex';
+  }
+
+  try {
+    await displayPhotographersData();
+  } catch (error) {
+    console.error('Erreur lors du chargement des photographes:', error);
+  } finally {
+    if (loader) {
+      loader.style.display = 'none';
+    }
+  }
+}
+
+init();
