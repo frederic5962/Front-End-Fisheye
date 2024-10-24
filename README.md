@@ -4,5 +4,5 @@ HTML
 CSS
 JavaScript
 
-https://frederic5962.github.io/Front-End-Fisheye/
+https://frederic5962.github.io/Front-End-Fisheye
 
