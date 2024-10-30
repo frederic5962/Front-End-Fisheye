@@ -1,31 +1,24 @@
-import { photographerFactory } from '../factory/photographer.js';
-import { getPhotographers } from '../utils/fetchData.js';
+import Api from "../api/Api.js";
+import PhotographerCardDOM from "../templates/photographerTemplate.js"; // Assurez-vous que c'est le bon chemin
+import Photographer from "../models/photographersModel.js";
 
-async function displayPhotographersData() {
-  const photographersSection = document.querySelector('.photographer_section');
-  const photographers = await getPhotographers();
-  photographers.forEach((photographerData) => {
-    const photographer = photographerFactory(photographerData);
-    const userCardDOM = photographer.getUserCardDOM();
-    photographersSection.appendChild(userCardDOM);
-  });
-}
+const photographersSection = document.querySelector(".photographer_section");
+const photographersApi = new Api("./data/photographers.json");
 
-async function init() {
-  const loader = document.querySelector('.loader');
-  if (loader) {
-    loader.style.display = 'flex';
-  }
-
+const displayPhotographers = async () => {
   try {
-    await displayPhotographersData();
-  } catch (error) {
-    console.error('Erreur lors du chargement des photographes:', error);
-  } finally {
-    if (loader) {
-      loader.style.display = 'none';
-    }
-  }
-}
+    const photographersData = await photographersApi.getPhotographers();
+    const photographers = photographersData.photographers;
 
-init();
+    photographers
+      .map((photographer) => new Photographer(photographer))
+      .forEach((photographer) => {
+        const photographerCardDOM = new PhotographerCardDOM(photographer);
+        photographersSection.appendChild(photographerCardDOM.getUserCardDOM());
+      });
+  } catch (error) {
+    console.error('Erreur lors de l\'affichage des photographes :', error);
+  }
+};
+
+document.addEventListener('DOMContentLoaded', displayPhotographers);
