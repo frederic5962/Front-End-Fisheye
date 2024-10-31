@@ -4,9 +4,13 @@ export default class PhotographerCardDOM {
       this.photographer = photographer;
     }
   
+
+  /**
+   * Return a DOM element representing a photographer card
+   * @returns {HTMLElement} - article element with class "photographer-card"
+   */
+
     getUserCardDOM() {
-      
-    
       const { id, name, city, country, tagline, price, portrait } = this.photographer;
       const photographerCardDOM = document.createElement("article");
       photographerCardDOM.classList.add("photographer-card");

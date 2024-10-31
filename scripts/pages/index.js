@@ -5,6 +5,15 @@ import Photographer from "../models/photographersModel.js";
 const photographersSection = document.querySelector(".photographer_section");
 const photographersApi = new Api("./data/photographers.json");
 
+
+/**
+ * Affiche les photographes sur la page d'accueil
+ *
+ * @async
+ *
+ * @throws {Error} Erreur lors de l'appel à l'API
+ */
+
 const displayPhotographers = async () => {
   try {
     const photographersData = await photographersApi.getPhotographers();
