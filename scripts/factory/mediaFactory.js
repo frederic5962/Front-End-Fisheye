@@ -17,11 +17,16 @@ import Video from "../models/videoModel.js";
  * @throws {Error} Throws an error if the media type is unknown.
  */
 /******  c16b8f19-66ae-4160-877d-bfc7c5e1430a  *******/
-export default function mediaFactory(data) {
+export default function mediaFactory(data, photographerName) {
+    //contruit le chemin d'acces au media 
+    const imagePath = `assets/photos/${photographerName}/${data.image}`;
+    const videoPath = `assets/videos/${photographerName}/${data.video}`;
+
+    //créer l'objet Media avec le chemin d'accès correct
     if (data.image) {
-        return new Image(data);
+        return new Image(data, Image, imagePath);
     } else if (data.video) {
-        return new Video(data);
+        return new Video(data, Video, videoPath);
     } else {
         throw new Error("Unknown media type");
     }

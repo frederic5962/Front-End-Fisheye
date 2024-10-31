@@ -1,4 +1,4 @@
-import Api from "../api/Api.js";
+import Api from "../api/api.js";
 import PhotographerCardDOM from "../templates/photographerTemplate.js"; // Assurez-vous que c'est le bon chemin
 import Photographer from "../models/photographersModel.js";
 
