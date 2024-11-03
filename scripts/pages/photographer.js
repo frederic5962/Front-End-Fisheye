@@ -35,7 +35,7 @@ async function init() {
         if (mediaDOM instanceof Image) {
           mediaElement.innerHTML = `<img src="${mediaDOM.image}" alt="${mediaDOM.title}">`;
         } else if (mediaDOM instanceof Video) {
-          mediaElement.innerHTML = `<video controls src="${mediaDOM.video}" alt="${mediaDOM.title}"></video>`;
+          mediaElement.innerHTML = `<video controls src="${mediaDOM.video}" title="${mediaDOM.title}"></video>`;
         }
         photographersGallery.appendChild(mediaElement);
       });
