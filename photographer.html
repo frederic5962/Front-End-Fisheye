@@ -9,19 +9,26 @@
   <link rel="stylesheet" href="css/photographer.css" />
   <title>Fisheye - photographe</title>
 </head>
-<body>
+<body>  
+<dialog id="lightbox" class="lightbox">
+  <div class="lightbox-content">
+    <img id="lightbox-image" src="" alt="media">
+    <video src="" id="lightbox-video" controls></video>
+    <button id="close-lightbox" class="lightbox-close" onclick="closelightbox()">Fermer</button>
+  </div>
+</dialog>
+
   <header>
     <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
   </header>
+
   <main id="main">
     <div class="photograph-header">
       <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
     </div>
-    <section class="photograph-gallery"></section> <!-- Ajouté pour la galerie -->
-    
+
+    <section class="photograph-gallery"></section> <!-- Ajouté pour la galerie -->   
   </main>
-
-
   <div id="contact_modal">
     <div class="modal">
       <header>
@@ -47,11 +54,11 @@
         </div>
 
         <button class="contact_button" onclick="submitForm()" type="submit">Envoyer</button>
-      </form>
-      
+      </form>     
     </div>
   </div>
 
+  
   <script type="module" src="scripts/pages/photographer.js" defer></script>
   <script  src="scripts/utils/contactForm.js"></script> 
 </body>
