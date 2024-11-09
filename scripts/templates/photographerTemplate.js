@@ -19,10 +19,9 @@ export default class PhotographerCardDOM {
         <img
           src="assets/photographers-id-photo/${portrait}"
           alt="portrait du photographe ${name}"
-          class="photographer-card__portrait"
-        />
+          class="photographer-card__portrait"/>
       </a>
-      <div class="photographer-card__infos">
+      <div class="photographer-infos">
         <h2 class="photographer-card__name">${name}</h2>
         <p class="photographer-card__location">${city}, ${country}</p>
         <p class="photographer-card__tagline">${tagline}</p>

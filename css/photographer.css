@@ -8,6 +8,7 @@
     background-color: #FAFAFA;
     height: 313px;
     margin: 0 171px;
+    background-color: cyan;
 }
 
 .photograph-header img {
@@ -39,11 +40,35 @@
     cursor: pointer;
 }
 
+.photographer-infos  {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-bottom: 100px;
+    
+}
+
+.photograph-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 150px 100px;
+    gap : 15px;
+}
+
 .photograph-gallery img {
     display: flex;
     width: 350px;
     height: 351px;
     object-fit: cover;
+}
+.photograph-gallery video {
+    display: flex;
+    width: 350px;
+    height: 351px;
+    object-fit: cover;
+    
 }
 
 

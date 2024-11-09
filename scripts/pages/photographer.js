@@ -4,6 +4,7 @@ import Video from "../models/videoModel.js";
 import Image from "../models/imageModel.js"; 
 
 const photographersGallery = document.querySelector(".photograph-gallery");
+const photographerHeader = document.querySelector(".photograph-header");
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 
@@ -23,7 +24,7 @@ async function init() {
 
     if (photographer) {
       const photographerCardDOM = new PhotographerCardDOM(photographer);
-      photographersGallery.appendChild(photographerCardDOM.getUserCardDOM());
+      photographerHeader.appendChild(photographerCardDOM.getUserCardDOM());
     } else {
       console.error('Photographe non trouvé');
     }
