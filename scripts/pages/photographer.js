@@ -59,7 +59,7 @@ async function init() {
         // Ajouter le gestionnaire d'événements pour ouvrir la lightbox
         link.addEventListener("click", (event) => {
           event.preventDefault(); 
-          lightbox.open(mediaElements, index); // Passer le tableau et l'index actuel
+          lightbox.open(mediaElements, index); 
         });
 
         // Ajouter le lien à la galerie

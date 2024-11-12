@@ -1,28 +1,21 @@
- export default class LightBox extends HTMLElement {
-    dialogElement = null
+export default class LightBox extends HTMLElement {
+    dialogElement = null;
   
     constructor() {
       super();
   
-     
-  
-      const lightboxTemplate = document.getElementById('lightbox-template-content')
+      const lightboxTemplate = document.getElementById('lightbox-template-content');
       const lightboxTemplateContent = lightboxTemplate.content.cloneNode(true);
   
       // Attacher l'écouteur d'événements après avoir cloné le contenu
-       lightboxTemplateContent.querySelector('.close').addEventListener('click', () => {
+      lightboxTemplateContent.querySelector('.close').addEventListener('click', () => {
           this.close();
-        })
-      
+      });
   
       this.dialogElement = document.createElement('dialog');
-      this.dialogElement.appendChild(
-       lightboxTemplateContent)
-      
+      this.dialogElement.appendChild(lightboxTemplateContent);
   
-      this.attachShadow({mode: 'open'}).appendChild(
-        this.dialogElement
-      )
+      this.attachShadow({mode: 'open'}).appendChild(this.dialogElement);
     }
   
     open(mediaData) {
@@ -48,7 +41,6 @@
     close() {
       this.dialogElement.close();
     }
-    isOpen
-  }
+}
   
-  customElements.define('light-box', LightBox);
+customElements.define('light-box', LightBox);
