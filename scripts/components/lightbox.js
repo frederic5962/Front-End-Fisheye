@@ -1,38 +1,32 @@
-export default class LightBox extends HTMLElement {
-    dialogElement = null;
+ export default class LightBox extends HTMLElement {
+    dialogElement = null
   
     constructor() {
       super();
   
-      // Attacher le Shadow DOM
-      this.attachShadow({ mode: 'open' }); 
-      console.log(this.shadowRoot);
+     
   
-      const lightboxTemplate = this.shadowRoot.querySelector('template');
+      const lightboxTemplate = document.getElementById('lightbox-template-content')
       const lightboxTemplateContent = lightboxTemplate.content.cloneNode(true);
   
       // Attacher l'écouteur d'événements après avoir cloné le contenu
-      const closeButton = lightboxTemplateContent.querySelector('.close'); 
-      if (closeButton) {
-        closeButton.addEventListener('click', () => {
+       lightboxTemplateContent.querySelector('.close').addEventListener('click', () => {
           this.close();
-        });
-      } else {
-        console.error("Bouton de fermeture non trouvé dans le template.");
-      }
+        })
+      
   
       this.dialogElement = document.createElement('dialog');
+      this.dialogElement.appendChild(
+       lightboxTemplateContent)
+      
   
-      // Ajouter les éléments du template au dialog
-      lightboxTemplateContent.querySelectorAll('*').forEach(element => {
-        this.dialogElement.appendChild(element);
-      });
-  
-      this.shadowRoot.appendChild(this.dialogElement);
+      this.attachShadow({mode: 'open'}).appendChild(
+        this.dialogElement
+      )
     }
   
     open(mediaData) {
-      const mediaContainer = this.shadowRoot.querySelector('.lightbox-content'); 
+      const mediaContainer = this.shadowRoot.querySelector('.lightbox-template-content'); 
       mediaContainer.innerHTML = ''; 
   
       if (mediaData.image) { 
@@ -54,6 +48,7 @@ export default class LightBox extends HTMLElement {
     close() {
       this.dialogElement.close();
     }
+    isOpen
   }
   
   customElements.define('light-box', LightBox);

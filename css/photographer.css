@@ -138,7 +138,8 @@ form input {
     background: rgba(0, 0, 0, 0.8);
     align-items: center;
     justify-content: center;
-    display: none; 
+    display: flex;
+    z-index: 9999;
   }
   
   #lightbox-template .lightbox-content {
@@ -156,14 +157,14 @@ form input {
     display: block; 
   }
   
-  #lightbox-template .close {
+   .close {
     /* Style du bouton de fermeture */
     position: absolute; 
-    top: 10px;
-    right: 10px;
+    top: 100px;
+    right: 100px;
     font-size: 30px;
     color: white;
-    background: transparent;
+    
     border: none;
     cursor: pointer;
   }

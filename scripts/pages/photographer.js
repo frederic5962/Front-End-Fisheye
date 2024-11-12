@@ -2,7 +2,7 @@ import mediaFactory from "../factory/mediaFactory.js";
 import PhotographerCardDOM from "../templates/photographerTemplate.js";
 import Video from "../models/videoModel.js";
 import Image from "../models/imageModel.js";
-import LightBox from "../components/lightbox.js"; 
+import LightBox from "../components/lightbox.js";
 
 const photographersGallery = document.querySelector(".photograph-gallery");
 const photographerHeader = document.querySelector(".photograph-header");
@@ -10,7 +10,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 
 // Créer une instance de LightBox (une seule fois)
-
+const lightbox = new LightBox(); 
 
 /**
  * Fonction d'initialisation de la page photographe
@@ -54,6 +54,8 @@ async function init() {
         // Stocker l'élément media dans le tableau
         mediaElements.push(mediaDOM); 
 
+        
+        
         // Ajouter le gestionnaire d'événements pour ouvrir la lightbox
         link.addEventListener("click", (event) => {
           event.preventDefault(); 
