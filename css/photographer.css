@@ -5,11 +5,13 @@
 }
 
 .photograph-header {
+    display: flex;
     background-color: #FAFAFA;
     height: 313px;
     margin: 0 171px;
     background-color: cyan;
 }
+
 
 .photograph-header img {
     height: 200px;
@@ -126,3 +128,42 @@ form input {
     border-radius: 5px;
 }
 
+/* Cibler la lightbox avec l'ID */
+#lightbox-template { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    display: none; 
+  }
+  
+  #lightbox-template .lightbox-content {
+    /* Style du conteneur du média */
+    position: relative;
+    max-width: 90%; 
+    max-height: 90vh; 
+  }
+  
+  #lightbox-template img,
+  #lightbox-template video {
+    /* Style du média */
+    max-width: 100%;
+    max-height: 100%;
+    display: block; 
+  }
+  
+  #lightbox-template .close {
+    /* Style du bouton de fermeture */
+    position: absolute; 
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
