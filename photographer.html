@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="css/photographer.css"/>
+  <link rel="stylesheet" href="css/lightbox.css">
   <title>Fisheye - photographe</title>
 </head>
 <body>  
@@ -50,14 +51,13 @@
   </div>
 
   <light-box id="lightbox-template">
-    <template id="lightbox-template-content">
-      <div>
-        <button  class="close">X</button>
-        
-      </div>
-    </template>
   </light-box>
-
+  <template id="lightbox-template-content">
+     <div class="lightbox-template-content"> 
+      <button class="close">X</button> 
+    </div>
+  </template>
+  
   
   <script type="module" src="scripts/pages/photographer.js" defer></script>
   <script  src="scripts/utils/contactForm.js"></script> 

@@ -1,0 +1,54 @@
+/* lightbox.css */
+
+.lightbox-template-content img,
+.lightbox-template-content video {
+    max-width: 100%;
+    max-height: 100vh;
+    width: auto;
+    height: auto;
+    margin: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.lightbox-template-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.close {
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.lightbox-template-content button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.lightbox-template-content button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-template-content button.prev {
+    left: 10px;
+}
+
+.lightbox-template-content button.next {
+    right: 10px;
+}

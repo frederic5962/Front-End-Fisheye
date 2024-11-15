@@ -16,7 +16,7 @@
   border-radius: 50%;
   object-fit: cover;
   margin-left: 990px;
-  margin-top: -15 px;
+  margin-top: -15px; /* Correction de l'espacement */
 }
 
 .photograph-card img {
@@ -55,12 +55,7 @@
   gap: 15px;
 }
 
-.photograph-gallery img {
-  display: flex;
-  width: 350px;
-  height: 351px;
-  object-fit: cover;
-}
+.photograph-gallery img,
 .photograph-gallery video {
   display: flex;
   width: 350px;
@@ -111,7 +106,7 @@ form div {
   display: flex;
   flex-direction: column;
   width: 100%;
-  align-items: self-start;
+  align-items: flex-start;
   margin-bottom: 26px;
 }
 
@@ -122,39 +117,3 @@ form input {
   border-radius: 5px;
 }
 
-/* Cibler la lightbox avec l'ID */
-#lightbox-template {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  z-index: 9999;
-}
-
-#lightbox-template .lightbox-content {
-  /* Style du conteneur du média */
-  position: relative;
-  max-width: 90%;
-  max-height: 90vh;
-}
-
-.lightbox-template-content img,
-.lightbox-template-content video {
-  max-width: 80%;
-  max-height: 80%;
-  margin: auto;
-  display: block;
-}
-.close {
-  color: white;
-  font-size: 2rem;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-}

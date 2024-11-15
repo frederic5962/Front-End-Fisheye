@@ -8,9 +8,9 @@ const photographersGallery = document.querySelector(".photograph-gallery");
 const photographerHeader = document.querySelector(".photograph-header");
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
+const lightbox = document.querySelector('light-box');
 
-// Créer une instance de LightBox (une seule fois)
-const lightbox = new LightBox(); 
+ 
 
 /**
  * Fonction d'initialisation de la page photographe
