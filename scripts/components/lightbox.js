@@ -1,87 +1,51 @@
-export default class LightBox extends HTMLElement {
-  dialogElement = null;
-  currentIndex = 0;
-  mediaElements = [];
+import  Image  from "../models/imageModel.js";
+import  Video  from "../models/videoModel.js";
 
-  constructor() {
-      super();
-      const lightboxTemplate = document.getElementById('lightbox-template-content');
-      const lightboxTemplateContent = lightboxTemplate.content.cloneNode(true);
-      lightboxTemplateContent.querySelector('.close').addEventListener('click', () => {
-          this.close();
-      });
+function openLightbox(media) {
+  // 1. Créer la structure de la lightbox (balise <dialog>)
+  const lightbox = document.createElement('dialog');
+  lightbox.classList.add('lightbox');
 
-      this.dialogElement = document.createElement('dialog');
-      this.dialogElement.appendChild(lightboxTemplateContent);
-
-      this.attachShadow({ mode: 'open' });
-
-      // Importer et injecter le CSS externe
-      const linkElem = document.createElement('link');
-      linkElem.setAttribute('rel', 'stylesheet');
-      linkElem.setAttribute('href', './css/lightbox.css'); 
-      this.shadowRoot.appendChild(linkElem);
-
-      this.shadowRoot.appendChild(this.dialogElement);
+  // 2. Ajouter le média à la lightbox
+  if (media instanceof Image) {
+    const img = document.createElement('img');
+    img.src = media.image;
+    img.alt = media.title;
+    lightbox.appendChild(img);
+  } else if (media instanceof Video) {
+    const video = document.createElement('video');
+    video.controls = true;
+    video.src = media.video;
+    video.title = media.title;
+    lightbox.appendChild(video);
   }
 
-  open(mediaElements, index) {
-      this.mediaElements = mediaElements;
-      this.currentIndex = index;
-      this.updateLightboxContent();
-      this.dialogElement.showModal();
-  }
+  // 3. Ajouter un bouton pour fermer la lightbox
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'X';
+  closeButton.classList.add('lightbox__close');
+  closeButton.addEventListener('click', () => {
+    lightbox.close(); 
+    // Supprimer la lightbox du DOM après la fermeture
+    lightbox.remove(); 
+  });
+  lightbox.appendChild(closeButton);
 
-  close() {
-      this.dialogElement.close();
-  }
+  // 4. Ajouter la lightbox au DOM
+  document.body.appendChild(lightbox);
 
-  updateLightboxContent() {
-      const mediaData = this.mediaElements[this.currentIndex];
-      const mediaContainer = this.shadowRoot.querySelector('.lightbox-template-content');
+  // 5. Afficher la lightbox
+  lightbox.showModal();
+}
 
-      if (mediaContainer) {
-          mediaContainer.innerHTML = ''; 
-
-          if (mediaData.image) {
-              const img = document.createElement('img');
-              img.src = mediaData.image;
-              img.alt = mediaData.title;
-              mediaContainer.appendChild(img);
-          } else if (mediaData.video) {
-              const video = document.createElement('video');
-              video.src = mediaData.video;
-              video.controls = true;
-              video.title = mediaData.title;
-              mediaContainer.appendChild(video);
-          }
-
-          const prevButton = document.createElement('button');
-          prevButton.textContent = 'Précédent';
-          prevButton.classList.add('prev');
-          prevButton.addEventListener('click', () => this.showPrevious());
-
-          const nextButton = document.createElement('button');
-          nextButton.textContent = 'Suivant';
-          nextButton.classList.add('next');
-          nextButton.addEventListener('click', () => this.showNext());
-
-          mediaContainer.appendChild(prevButton);
-          mediaContainer.appendChild(nextButton);
-      } else {
-          console.error('Le conteneur .lightbox-template-content est introuvable.');
-      }
-  }
-
-  showPrevious() {
-      this.currentIndex = (this.currentIndex - 1 + this.mediaElements.length) % this.mediaElements.length;
-      this.updateLightboxContent();
-  }
-
-  showNext() {
-      this.currentIndex = (this.currentIndex + 1) % this.mediaElements.length;
-      this.updateLightboxContent();
+// Fonction pour fermer la lightbox (optionnel)
+function closeLightbox() {
+  const lightbox = document.querySelector('.lightbox');
+  if (lightbox) {
+    lightbox.close();
+    lightbox.remove();
   }
 }
 
-customElements.define('light-box', LightBox);
+// Exporter les fonctions pour les utiliser dans d'autres fichiers
+export { openLightbox, closeLightbox }; 
