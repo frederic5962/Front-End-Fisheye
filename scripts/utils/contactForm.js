@@ -1,4 +1,4 @@
-function displayModal() {
+ function displayModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
 }
@@ -32,3 +32,4 @@ function submitForm() {
     }
 
 
+export default { displayModal, closeModal, submitForm };

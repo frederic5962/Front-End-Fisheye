@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="css/photographer.css"/>
   <link rel="stylesheet" href="css/lightbox.css">
   <title>Fisheye - photographe</title>
@@ -18,40 +17,42 @@
   <main id="main">
     <div class="photograph-header"></div> 
 
+    <div id="contact_modal">
+      <div class="modal">
+        <header>
+          <h2>Contactez-moi</h2>
+          <img src="assets/icons/close.svg" alt="fermer la modale"/>
+          <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        </header>
+        <form id="contact_form">
+          <div>
+            <label for="firstName">Prénom</label>
+            <input id="firstName" type="text" aria-placeholder="Votre prénom" />
+          </div>
+          <div>
+            <label for="lastName">Nom</label>
+            <input id="lastName" type="text" aria-placeholder="Votre nom"/>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email"  type="email" aria-placeholder="Votre adresse email"/>
+          </div>
+          <div>
+            <label>Message</label>
+            <textarea id="message" type="text" placeholder="Tapez votre message ici..."></textarea>
+          </div>
+  
+          <button class="contact_button" onclick="submitForm()" type="submit">Envoyer</button>
+        </form>     
+      </div>
+    </div>
+
     <section class="photograph-gallery"></section>  
   </main>
 
-  <div id="contact_modal">
-    <div class="modal">
-      <header>
-        <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" alt="close button"/>
-      </header>
-      <form id="contact_form">
-        <div>
-          <label for="firstName">Prénom</label>
-          <input id="firstName" type="text" aria-placeholder="Votre prénom" />
-        </div>
-        <div>
-          <label for="lastName">Nom</label>
-          <input id="lastName" type="text" aria-placeholder="Votre nom"/>
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email"  type="email" aria-placeholder="Votre adresse email"/>
-        </div>
-        <div>
-          <label>Message</label>
-          <textarea id="message" type="text" placeholder="Tapez votre message ici..."></textarea>
-        </div>
-
-        <button class="contact_button" onclick="submitForm()" type="submit">Envoyer</button>
-      </form>     
-    </div>
-  </div>
+  
 
   <dialog id="lightbox">
- 
   </dialog>
   
   

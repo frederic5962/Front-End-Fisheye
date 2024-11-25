@@ -5,6 +5,8 @@ import Image from "../models/imageModel.js";
 import { openLightbox } from '../components/lightbox.js'; 
 
 
+
+const modal = document.getElementById("contact_modal");
 const photographersGallery = document.querySelector(".photograph-gallery");
 const photographerHeader = document.querySelector(".photograph-header");
 const urlParams = new URLSearchParams(window.location.search);
@@ -69,5 +71,7 @@ async function init() {
     console.error("Erreur lors du chargement des médias :", error);
   }
 }
+
+
 
 document.addEventListener("DOMContentLoaded", init);
