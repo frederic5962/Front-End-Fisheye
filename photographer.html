@@ -15,42 +15,54 @@
   </header>
 
   <main id="main">
-    <div class="photograph-header"></div> 
+    <div class="photograph-header">
+      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+    </div> 
 
-    <div id="contact_modal">
-      <div class="modal">
-        <header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" alt="fermer la modale"/>
-          <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        </header>
-        <form id="contact_form">
-          <div>
-            <label for="firstName">Prénom</label>
-            <input id="firstName" type="text" aria-placeholder="Votre prénom" />
-          </div>
-          <div>
-            <label for="lastName">Nom</label>
-            <input id="lastName" type="text" aria-placeholder="Votre nom"/>
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email"  type="email" aria-placeholder="Votre adresse email"/>
-          </div>
-          <div>
-            <label>Message</label>
-            <textarea id="message" type="text" placeholder="Tapez votre message ici..."></textarea>
-          </div>
-  
-          <button class="contact_button" onclick="submitForm()" type="submit">Envoyer</button>
-        </form>     
-      </div>
-    </div>
+    <label for="sort" class="mon-label">Trier par</label> 
+      <select name="sort_by" id="sort" aria-placeholder="Trie"> 
+       
+         <option value="popularite" class="option">Popularité</option> 
+         <hr>
+         <option value="date">Date</option> 
+         <hr>
+         <option value="titre">Titre</option> 
+      
+      </select>
+    
 
     <section class="photograph-gallery"></section>  
   </main>
 
-  
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+      </header>
+        <h2>Contactez-moi</h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" alt="fermer la modale"/>
+    
+
+  <form id="contact_form">
+    <div>
+      <label for="firstName">Prénom</label>
+      <input id="firstName" type="text" aria-placeholder="Votre prénom" />
+    </div>
+    <div>
+      <label for="lastName">Nom</label>
+      <input id="lastName" type="text" aria-placeholder="Votre nom"/>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email"  type="email" aria-placeholder="Votre adresse email"/>
+    </div>
+    <div>
+      <label>Message</label>
+      <textarea id="message" type="text" placeholder="Tapez votre message ici..."></textarea>
+    </div>
+
+    <button class="contact_button" onclick="submitForm()" type="submit">Envoyer</button>
+  </form>     
+</div>
 
   <dialog id="lightbox">
   </dialog>

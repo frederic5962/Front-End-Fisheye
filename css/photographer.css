@@ -22,56 +22,102 @@
   width: 200px;
   border-radius: 50%;
   object-fit: cover;
-  left: 1110px;
-  margin-top: 55px; 
-  
+  left: 999px;
+  margin-top: 55px;
 }
 
-.photograph-header h2  {
+.photograph-header h2 {
   display: flex;
   position: relative;
   font-size: 64px;
- color: #D3573C;
- margin: -168px 87px 0px 14px;
+  color: #d3573c;
+  margin: -168px 87px 0px 14px;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px 0px -90px;
 }
 
 .photographer-card__location {
   display: flex;
   position: relative;
-  margin: 20px 0 0 20px; 
+  margin: 20px 0 0 20px;
 }
 
 .photographer-card__tagline {
   display: flex;
   position: relative;
-  margin: 20px 0 0 20px; 
+  margin: 20px 0 0 20px;
 }
 
-.photographer-card__price { 
+.photographer-card__price {
   display: flex;
-  position: relative; 
-  margin: 20px 0 0 20px; 
+  position: relative;
+  margin: 20px 0 0 20px;
 }
-
-
 
 .contact_button {
   font-size: 20px;
   font-weight: bold;
-  color: rgb(10, 2, 2);
   padding: 11px;
   width: 170px;
   height: 70px;
   border: none;
   background-color: #901c1c;
   border-radius: 5px;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  color: white;
 }
+
+.mon-label {
+  display: block;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+  position: relative;
+  top: 30px;
+  left: 100px;
+}
+
+/* Style pour le label */
+.mon-label {
+  display: block;
+  font-weight: bold;
+  color: blue;
+  margin-bottom: 10px;
+  position: relative;
+  top: 30px;
+  left: 100px;
+}
+
+/* Style pour le select */
+#sort {
+  display: block;
+  width: 170px; /* Largeur définie pour le select */
+  height: 69px;
+  background-color: #901c1c;
+  border-radius: 5px;
+  margin-left: 196px;
+  cursor: pointer;
+  margin-top: -30px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+
+
 
 .photographer-infos {
   flex-direction: column;
   margin-left: 10px;
-
 }
 
 .photograph-gallery {
@@ -79,8 +125,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 150px 100px;
-  gap: 15px;
+  margin: 30px 100px;
+  gap: 18px;
 }
 
 .photograph-gallery img,
@@ -144,4 +190,3 @@ form input {
   border: none;
   border-radius: 5px;
 }
-

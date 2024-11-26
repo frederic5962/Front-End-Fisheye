@@ -32,4 +32,3 @@ function submitForm() {
     }
 
 
-export default { displayModal, closeModal, submitForm };
