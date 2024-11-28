@@ -1,3 +1,5 @@
+//Creation de la carte du photographe pour la page d'accueil et photographer
+
 export default class PhotographerCardDOM {
   
     constructor(photographer) {

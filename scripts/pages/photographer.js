@@ -4,11 +4,10 @@ import Video from "../models/videoModel.js";
 import Image from "../models/imageModel.js";
 import { openLightbox } from '../components/lightbox.js'; 
 
-
-
-const modal = document.getElementById("contact_modal");
+const photographerHeaderInfos = document.querySelector(".photograph-header__infos");
+const photographerHeaderPortrait = document.querySelector(".photograph-header__portrait");
 const photographersGallery = document.querySelector(".photograph-gallery");
-const photographerHeader = document.querySelector(".photograph-header");
+const modal = document.getElementById("contact_modal");
 const urlParams = new URLSearchParams(window.location.search);
 const id = parseInt(urlParams.get("id"));
 const sort = document.getElementById("sort");
@@ -37,7 +36,6 @@ function displayMedia(media, index) {
     photographersGallery.appendChild(link);
   });
 }
-  
 
 /**
  * Fonction d'initialisation de la page photographe
@@ -60,20 +58,26 @@ async function init() {
       console.error("Photographe introuvable");
       return;
     }
-      const photographerCardDOM = new PhotographerCardDOM(photographer);
-      photographerHeader.appendChild(photographerCardDOM.getUserCardDOM());
+    
+    const photographerCardDOM = new PhotographerCardDOM(photographer);
+    const photographerCardElement = photographerCardDOM.getUserCardDOM();
+    
+    // Ajouter les informations du photographe dans le bloc `photograph-header__infos`
+    photographerHeaderInfos.appendChild(photographerCardElement.querySelector('.photographer-infos'));
+    
+    // Ajouter le portrait dans le bloc `photograph-header__portrait`
+    photographerHeaderPortrait.appendChild(photographerCardElement.querySelector('.photographer-card__portrait'));
 
     if (media.length === 0) {
       console.error("Aucun média trouvé pour ce photographe");
-
       return;
     }
   
-      displayMedia(media);
+    displayMedia(media);
 
-    } catch (error) {
-      console.error("Erruer lors du chargement des médias");
-    }
+  } catch (error) {
+    console.error("Erreur lors du chargement des médias", error);
   }
+}
 
 document.addEventListener("DOMContentLoaded", init);

@@ -1,119 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  object-fit: cover;
+}
+
 #contact_modal {
   display: none;
 }
 
 .logo {
   height: 50px;
-  margin-left: 100px;
+  margin: 30px 0 0 130px;
 }
 
 .photograph-header {
   display: flex;
-  background-color: #fafafa;
-  height: 320px;
-  margin: 50px 100px;
-  background-color: cyan;
+  justify-content: space-between; /* Espacement égal entre les éléments */
+  align-items: center; /* Aligne les éléments verticalement au centre */
+  padding: 20px; /* Ajuster selon vos besoins */
+  height: 30vh; /* Unité flexible */
+  margin: 4vh 8vw; /* Unités flexibles */
+  background: rgba(250, 250, 250, 1);
+}
+
+.photograph-header__infos,
+.photograph-header__portrait {
+  width: 33%; /* Ajustez selon vos besoins pour équilibrer la mise en page */
+}
+
+.photograph-header__infos h2 {
+  font-family: DM Sans;
+font-size: 64px;
+font-weight: 400;
+line-height: 83.33px;
+text-align: left;
+color: rgba(211, 87, 60, 1);
+}
+
+.photographer-card__location {
+  font-family: DM Sans;
+font-size: 24px;
+font-weight: 400;
+line-height: 31.25px;
+text-align: left;
+color: rgba(144, 28, 28, 1);
+} 
+
+.photographer-card__tagline {
+font-family: DM Sans;
+font-size: 18px;
+font-weight: 400;
+text-align: left;
+color:  rgba(82, 82, 82, 1);
+;
+
+}
+
+.contact_button {
+  width: 170px; /* Unité flexible */
+  height: 69px; 
+  margin: 0 20px; /* Espacement horizontal pour le bouton */
+  background-color: #901c1c;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px; /* Unité flexible */
+  text-align : center;
+}
+.photographer-infos {
+  display: flex;
+  flex-direction: column;
+}
+.photographer-infos h2,
+.photographer-infos p {
+  margin: 5px 0; /* Espacement entre les lignes de texte */
 }
 
 .photograph-header img {
   display: flex;
   position: relative;
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  left: 999px;
-  margin-top: 55px;
-}
+  height: 200px; /* Unité flexible */
+  width: 200px; /* Unité flexible */
+  border-radius: 50%; 
+  left: 20px;
+  top: 50%;
+  margin: 1vh 0 1vh 13vw; /* Unité flexible */
+} 
 
-.photograph-header h2 {
-  display: flex;
+.tri-container {
+  display: block;
   position: relative;
-  font-size: 64px;
-  color: #d3573c;
-  margin: -168px 87px 0px 14px;
+  margin-left: 140px;
 }
 
-article {
-  display: flex;
-  flex-direction: column;
-  margin: 0px 0px 0px -90px;
-}
-
-.photographer-card__location {
-  display: flex;
-  position: relative;
-  margin: 20px 0 0 20px;
-}
-
-.photographer-card__tagline {
-  display: flex;
-  position: relative;
-  margin: 20px 0 0 20px;
-}
-
-.photographer-card__price {
-  display: flex;
-  position: relative;
-  margin: 20px 0 0 20px;
-}
-
-.contact_button {
-  font-size: 20px;
-  font-weight: bold;
-  padding: 11px;
-  width: 170px;
-  height: 70px;
-  border: none;
-  background-color: #901c1c;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: white;
-}
 
 .mon-label {
   display: block;
   font-weight: bold;
-  color: black;
-  margin-bottom: 10px;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 1vh; /* Unité flexible */
   position: relative;
-  top: 30px;
-  left: 100px;
+  top: 3vh; /* Unité flexible */
 }
 
-/* Style pour le label */
-.mon-label {
-  display: block;
-  font-weight: bold;
-  color: blue;
-  margin-bottom: 10px;
-  position: relative;
-  top: 30px;
-  left: 100px;
-}
+
 
 /* Style pour le select */
 #sort {
   display: block;
-  width: 170px; /* Largeur définie pour le select */
-  height: 69px;
+  width: 15vw; /* Unité flexible */
+  height: 7vh; /* Unité flexible */
   background-color: #901c1c;
   border-radius: 5px;
-  margin-left: 196px;
+  margin-left: 5px; /* Unité flexible */
   cursor: pointer;
-  margin-top: -30px;
+  margin-top: -3vh; /* Unité flexible */
   color: white;
   font-weight: bold;
-  font-size: 18px;
-  padding: 10px;
+  font-size: 2vh; /* Unité flexible */
+  padding: 1vh; /* Unité flexible */
   box-sizing: border-box;
 }
 
 .photographer-infos {
   flex-direction: column;
-  margin-left: 10px;
+  margin-left: 1vw; /* Unité flexible */
 }
 
 .photograph-gallery {
@@ -121,8 +136,8 @@ article {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 30px 100px;
-  gap: 18px;
+  margin: 3vh 5vw; /* Unités flexibles */
+  gap: 2vh; /* Unité flexible */
 }
 
 .photograph-gallery img,
@@ -136,12 +151,12 @@ article {
 .modal {
   border-radius: 5px;
   background-color: #db8876;
-  width: 35%;
+  width: 70vw; /* Unité flexible */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 35px;
+  padding: 3vh; /* Unité flexible */
   margin: auto;
 }
 
@@ -155,7 +170,7 @@ article {
 }
 
 .modal header h2 {
-  font-size: 64px;
+  font-size: 6vh; /* Unité flexible */
   font-weight: normal;
   text-align: center;
 }
@@ -169,7 +184,7 @@ form {
 
 form label {
   color: #312e2e;
-  font-size: 36px;
+  font-size: 3vh; /* Unité flexible */
 }
 
 form div {
@@ -177,12 +192,12 @@ form div {
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
-  margin-bottom: 26px;
+  margin-bottom: 3vh; /* Unité flexible */
 }
 
 form input {
   width: 100%;
-  height: 68px;
+  height: 7vh; /* Unité flexible */
   border: none;
   border-radius: 5px;
 }

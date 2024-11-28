@@ -2,7 +2,7 @@ import  Image  from "../models/imageModel.js";
 import  Video  from "../models/videoModel.js";
 
 function openLightbox(media) {
-  // 1. Créer la structure de la lightbox (balise <dialog>)
+  // 1. Créer la balise dialog et la nomme lightbox pour le css 
   const lightbox = document.createElement('dialog');
   lightbox.classList.add('lightbox');
 
