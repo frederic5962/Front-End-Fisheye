@@ -1,22 +1,23 @@
 import  Image  from "../models/imageModel.js";
 import  Video  from "../models/videoModel.js";
 
-function openLightbox(media) {
+function openLightbox(media, index) {
   // 1. Créer la balise dialog et la nomme lightbox pour le css 
   const lightbox = document.createElement('dialog');
   lightbox.classList.add('lightbox');
 
   // 2. Ajouter le média à la lightbox
-  if (media instanceof Image) {
+  const mediaItem = media[index];
+  if (mediaItem instanceof Image) {
     const img = document.createElement('img');
-    img.src = media.image;
-    img.alt = media.title;
+    img.src = mediaItem.image;
+    img.alt = mediaItem.title;
     lightbox.appendChild(img);
-  } else if (media instanceof Video) {
+  } else if (mediaItem instanceof Video) {
     const video = document.createElement('video');
     video.controls = true;
-    video.src = media.video;
-    video.title = media.title;
+    video.src = mediaItem.video;
+    video.title = mediaItem.title;
     lightbox.appendChild(video);
   }
 

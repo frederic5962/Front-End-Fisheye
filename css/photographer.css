@@ -1,11 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-img {
-  object-fit: cover;
+
+
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
 }
 
 #contact_modal {
@@ -33,10 +31,9 @@ img {
 }
 
 .photograph-header__infos h2 {
-  font-family: DM Sans;
-font-size: 64px;
+font-family: DM Sans;
+font-size: 48px;
 font-weight: 400;
-line-height: 83.33px;
 text-align: left;
 color: rgba(211, 87, 60, 1);
 }
@@ -86,9 +83,8 @@ color:  rgba(82, 82, 82, 1);
   height: 200px; /* Unité flexible */
   width: 200px; /* Unité flexible */
   border-radius: 50%; 
-  left: 20px;
   top: 50%;
-  margin: 1vh 0 1vh 13vw; /* Unité flexible */
+  margin: 1px 0 1px 200px; /* Unité flexible */
 } 
 
 .tri-container {
@@ -102,27 +98,35 @@ color:  rgba(82, 82, 82, 1);
   display: block;
   font-weight: bold;
   color: rgba(0, 0, 0, 1);
-  margin-bottom: 1vh; /* Unité flexible */
   position: relative;
-  top: 3vh; /* Unité flexible */
+  top: 35px; /* Unité flexible */
 }
-
-
 
 /* Style pour le select */
 #sort {
   display: block;
-  width: 15vw; /* Unité flexible */
-  height: 7vh; /* Unité flexible */
+  width: 170px; /* Unité flexible */
+  height: 69px; /* Unité flexible */
   background-color: #901c1c;
   border-radius: 5px;
-  margin-left: 5px; /* Unité flexible */
+  margin-left: 100px; /* Unité flexible */
   cursor: pointer;
-  margin-top: -3vh; /* Unité flexible */
   color: white;
   font-weight: bold;
   font-size: 2vh; /* Unité flexible */
-  padding: 1vh; /* Unité flexible */
+  padding: 1px; /* Unité flexible */
+  box-sizing: border-box;
+}
+
+ .option  {
+  display: block;
+  width: 170px; /* Unité flexible */
+  height: 69px; /* Unité flexible */
+  background-color: #901c1c;
+  color: white;
+  font-weight: bold;
+  font-size: 2vh; /* Unité flexible */
+  padding: 1px; /* Unité flexible */
   box-sizing: border-box;
 }
 
