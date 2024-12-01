@@ -1,13 +1,6 @@
-
-
-
 body {
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   margin: 0;
-}
-
-#contact_modal {
-  display: none;
 }
 
 .logo {
@@ -31,42 +24,40 @@ body {
 }
 
 .photograph-header__infos h2 {
-font-family: DM Sans;
-font-size: 48px;
-font-weight: 400;
-text-align: left;
-color: rgba(211, 87, 60, 1);
+  font-family: DM Sans;
+  font-size: 48px;
+  font-weight: 400;
+  text-align: left;
+  color: rgba(211, 87, 60, 1);
 }
 
 .photographer-card__location {
   font-family: DM Sans;
-font-size: 24px;
-font-weight: 400;
-line-height: 31.25px;
-text-align: left;
-color: rgba(144, 28, 28, 1);
-} 
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 31.25px;
+  text-align: left;
+  color: rgba(144, 28, 28, 1);
+}
 
 .photographer-card__tagline {
-font-family: DM Sans;
-font-size: 18px;
-font-weight: 400;
-text-align: left;
-color:  rgba(82, 82, 82, 1);
-;
-
+  font-family: DM Sans;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
+  color: rgba(82, 82, 82, 1);
 }
 
 .contact_button {
   width: 170px; /* Unité flexible */
-  height: 69px; 
+  height: 69px;
   margin: 0 20px; /* Espacement horizontal pour le bouton */
   background-color: #901c1c;
   border-radius: 5px;
   color: white;
   cursor: pointer;
   font-size: 20px; /* Unité flexible */
-  text-align : center;
+  text-align: center;
 }
 .photographer-infos {
   display: flex;
@@ -82,17 +73,16 @@ color:  rgba(82, 82, 82, 1);
   position: relative;
   height: 200px; /* Unité flexible */
   width: 200px; /* Unité flexible */
-  border-radius: 50%; 
+  border-radius: 50%;
   top: 50%;
   margin: 1px 0 1px 200px; /* Unité flexible */
-} 
+}
 
 .tri-container {
   display: block;
   position: relative;
   margin-left: 140px;
 }
-
 
 .mon-label {
   display: block;
@@ -105,28 +95,28 @@ color:  rgba(82, 82, 82, 1);
 /* Style pour le select */
 #sort {
   display: block;
-  width: 170px; /* Unité flexible */
-  height: 69px; /* Unité flexible */
+  width: 170px;
+  height: 69px;
   background-color: #901c1c;
   border-radius: 5px;
-  margin-left: 100px; /* Unité flexible */
+  margin-left: 100px;
   cursor: pointer;
   color: white;
   font-weight: bold;
-  font-size: 2vh; /* Unité flexible */
-  padding: 1px; /* Unité flexible */
+  font-size: 2vh;
+  padding: 1px;
   box-sizing: border-box;
 }
 
- .option  {
-  display: block;
-  width: 170px; /* Unité flexible */
-  height: 69px; /* Unité flexible */
+/* Styles pour les options */
+#sort .option1 {
   background-color: #901c1c;
   color: white;
   font-weight: bold;
-  font-size: 2vh; /* Unité flexible */
-  padding: 1px; /* Unité flexible */
+  font-size: 2vh;
+  height: 69px; /* Uniformiser la hauteur */
+  line-height: 69px; /* Assurer que le texte est centré verticalement */
+  width: 170px; /* Assurer que la largeur est identique */
   box-sizing: border-box;
 }
 
@@ -152,15 +142,28 @@ color:  rgba(82, 82, 82, 1);
   object-fit: cover;
 }
 
+#contact_modal {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center; /* Centrer verticalement */
+  justify-content: center; /* Centrer horizontalement */
+  background-color: rgba(0, 0, 0, 0.8); /* Arrière-plan semi-transparent */
+  z-index: 1000;
+}
+
 .modal {
   border-radius: 5px;
   background-color: #db8876;
-  width: 70vw; /* Unité flexible */
+  width: 35%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 3vh; /* Unité flexible */
+  padding: 35px;
   margin: auto;
 }
 
@@ -174,7 +177,7 @@ color:  rgba(82, 82, 82, 1);
 }
 
 .modal header h2 {
-  font-size: 6vh; /* Unité flexible */
+  font-size: 64px;
   font-weight: normal;
   text-align: center;
 }
@@ -188,7 +191,7 @@ form {
 
 form label {
   color: #312e2e;
-  font-size: 3vh; /* Unité flexible */
+  font-size: 36px;
 }
 
 form div {
@@ -196,12 +199,13 @@ form div {
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
-  margin-bottom: 3vh; /* Unité flexible */
+  margin-bottom: 26px;
 }
 
 form input {
   width: 100%;
-  height: 7vh; /* Unité flexible */
+  height: 68px;
   border: none;
   border-radius: 5px;
 }
+

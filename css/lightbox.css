@@ -1,29 +1,58 @@
-
 .lightbox {
-  position: fixed; /* Pour que la lightbox soit fixe sur l'écran */
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Arrière-plan semi-transparent */
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
 .lightbox.hidden {
   opacity: 0;
-  pointer-events: none; /* Empêche les interactions lorsqu'elle est cachée */
+  pointer-events: none;
 }
 
-.lightbox img, 
-.lightbox video {
-  max-width: 90%; /* Limiter la taille du média */
+.lightbox__content {
+  position: relative; /* Pour positionner les éléments à l'intérieur */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 60%; /* Limiter la taille maximale */
+  max-height: 90%; /* Limiter la taille maximale */
+}
+
+.lightbox__media {
+  max-width: 55%; /* S'assurer que le média ne dépasse pas la taille du conteneur */
   max-height: 90%;
+  width: auto; /* Ajustement automatique de la largeur */
+  height: auto; /* Ajustement automatique de la hauteur */
   margin: 0;
   border: none;
+  object-fit: contain; /* Maintenir les proportions */
+}
+
+.lightbox__media--image {
+  max-width: 55%;
+  max-height: 65%;
+  width: auto;
+  height: auto;
+}
+.lightbox__media--video {
+  max-width: 100%; 
+  max-height: 80%; 
+  width: auto;
+  height: auto;
 }
 
 .lightbox__close {
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 150px;
   background-color: transparent;
   border: none;
   font-size: 2rem;
