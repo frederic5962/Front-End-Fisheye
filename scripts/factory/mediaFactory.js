@@ -15,7 +15,6 @@ import Video from "../models/videoModel.js";
 
 export default function mediaFactory(data) {
      
-
     //créer l'objet Media avec le chemin d'accès correct
     if (data.image) {
         return new Image (data);
