@@ -17,45 +17,66 @@
 }
 
 .lightbox__content {
-  position: relative; /* Pour positionner les éléments à l'intérieur */
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 60%; /* Limiter la taille maximale */
-  max-height: 90%; /* Limiter la taille maximale */
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
 }
 
 .lightbox__media {
-  max-width: 55%; /* S'assurer que le média ne dépasse pas la taille du conteneur */
-  max-height: 90%;
-  width: auto; /* Ajustement automatique de la largeur */
-  height: auto; /* Ajustement automatique de la hauteur */
-  margin: 0;
-  border: none;
-  object-fit: contain; /* Maintenir les proportions */
+  width: 90%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Maintenir les proportions sans déborder */
+  border: none; /* Enlever les bordures */
+  margin: 0; /* Pas de marges */
 }
 
-.lightbox__media--image {
-  max-width: 55%;
-  max-height: 65%;
-  width: auto;
-  height: auto;
-}
+.lightbox__media--image,
 .lightbox__media--video {
-  max-width: 100%; 
-  max-height: 80%; 
-  width: auto;
+  width: 90%;
   height: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .lightbox__close {
   position: absolute;
-  top: 20px;
-  right: 150px;
+  top: 45px; /* Ajustez cette valeur pour positionner la croix plus haut ou plus bas */
+  right: 70px; /* Ajustez cette valeur pour positionner la croix plus à gauche ou plus à droite */
+  height: 72px;
+  width: 72px;
   background-color: transparent;
   border: none;
-  font-size: 2rem;
+  font-size: 3rem;
   color: white;
   cursor: pointer;
+  color: rgba(144, 28, 28, 1);
+  z-index: 1001; /* Assurez-vous que la croix soit au-dessus de tout autre élément */
+}
+
+.lightbox__arrow {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0.5rem;
+}
+.lightbox__arrow--left {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lightbox__arrow--right {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }

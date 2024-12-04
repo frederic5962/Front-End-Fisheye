@@ -67,7 +67,6 @@ body {
 .photographer-infos p {
   margin: 5px 0; /* Espacement entre les lignes de texte */
 }
-
 .photograph-header img {
   display: flex;
   position: relative;
@@ -83,7 +82,6 @@ body {
   position: relative;
   margin-left: 140px;
 }
-
 .mon-label {
   display: block;
   font-weight: bold;
@@ -107,7 +105,6 @@ body {
   padding: 1px;
   box-sizing: border-box;
 }
-
 /* Styles pour les options */
 #sort .option1 {
   background-color: #901c1c;
@@ -124,7 +121,6 @@ body {
   flex-direction: column;
   margin-left: 1vw; /* Unité flexible */
 }
-
 .photograph-gallery {
   display: flex;
   flex-direction: row;
@@ -133,13 +129,49 @@ body {
   margin: 3vh 5vw; /* Unités flexibles */
   gap: 2vh; /* Unité flexible */
 }
-
 .photograph-gallery img,
 .photograph-gallery video {
   display: flex;
   width: 350px;
   height: 351px;
   object-fit: cover;
+}
+
+.media-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.media-title {
+  font-size: 1.2rem;
+  margin: 0 0 5px 0;
+}
+ h3 {
+ font-family: DM Sans;
+ font-size: 24px;
+ font-weight: 400;
+ line-height: 31px;
+ text-align: left;
+ text-underline-position: from-font;
+ text-decoration-skip-ink: none;
+ color: rgba(144, 28, 28, 1);
+}
+.media-likes-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+.media-likes {
+  font-size: 1rem;
+  color: gray;
+  margin-right: 5px;
+}
+.media-likes-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: rgba(144, 28, 28, 1);
 }
 
 #contact_modal {
@@ -167,16 +199,16 @@ body {
   margin: 10px auto 10px auto;
 }
 
-.modal header {
+.modal__header {
   justify-content: space-between;
   width: 100%;
 }
 
-.modal header img {
+.modal__header img {
   cursor: pointer;
 }
 
-.modal header h2 {
+.modal__header h2 {
   font-size: 64px;
   font-weight: normal;
   text-align: center;
@@ -209,4 +241,3 @@ form input {
   border: none;
   border-radius: 5px;
 }
-
