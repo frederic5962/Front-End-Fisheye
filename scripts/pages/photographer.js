@@ -12,63 +12,69 @@ const urlParams = new URLSearchParams(window.location.search);
 const id = parseInt(urlParams.get('id'));
 const sort = document.getElementById('sort');
 
-function displayMedia(media) {
-  photographersGallery.innerHTML = '';
+let totalLikes = 0; // Variable pour stocker le total des likes
 
-  media.forEach((mediaItem, index) => {
-    // Créer un conteneur pour le média
-    const mediaContainer = document.createElement('div');
-    mediaContainer.classList.add('media-container');
+function displayMedia(media) { 
+  photographersGallery.innerHTML = ''; 
 
-    // Créer le lien pour le média
-    const link = document.createElement('a');
-    link.href = '#';
+  media.forEach((mediaItem, index) => { 
+    const mediaContainer = document.createElement('div'); 
+    mediaContainer.classList.add('media-container'); 
 
-    if (mediaItem instanceof Image) {
-      link.innerHTML = `<img src="${mediaItem.image}" alt="${mediaItem.title}">`;
-    } else if (mediaItem instanceof Video) {
-      link.innerHTML = `<video controls src="${mediaItem.video}" title="${mediaItem.title}"></video>`;
-    }
+    const link = document.createElement('a'); 
+    link.href = '#'; 
 
-    // Ajouter un événement pour ouvrir la lightbox
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      openLightbox(media, index);
-    });
+    if (mediaItem instanceof Image) { 
+      link.innerHTML = `<img src="${mediaItem.image}" alt="${mediaItem.title}">`; 
+    } else if (mediaItem instanceof Video) { 
+      link.innerHTML = `<video controls src="${mediaItem.video}" title="${mediaItem.title}"></video>`; 
+    } 
+    
+    link.addEventListener('click', event => { 
+      event.preventDefault(); 
+      openLightbox(media, index); 
+    }); 
+    
+    const title = document.createElement('h3'); 
+    title.textContent = mediaItem.title; 
+    title.classList.add('media-title'); 
 
-    // Créer l'élément titre
-    const title = document.createElement('h3');
-    title.textContent = mediaItem.title;
-    title.classList.add('media-title');
-
-    // Créer l'élément des likes avec le cœur
-    const likesContainer = document.createElement('div');
-    likesContainer.classList.add('media-likes-container');
-
+    const likesContainer = document.createElement('div'); 
+    likesContainer.classList.add('media-likes-container'); 
+    
     const likesText = document.createElement('span'); 
-    likesText.textContent = mediaItem.likes;
+    likesText.textContent = mediaItem.likes; 
     likesText.classList.add('media-likes');
-
-    const heartIcon = document.createElement('button');
-    heartIcon.innerHTML = '❤'; // caractère Unicode sans couleur
-    heartIcon.classList.add('media-likes-button');
-    heartIcon.addEventListener('click', () => {
-      mediaItem.likes += 1;
-      likesText.textContent = mediaItem.likes;
-    });
-
-    likesContainer.appendChild(likesText);
-    likesContainer.appendChild(heartIcon);
-
-    // Ajouter le lien média, le titre et les likes au conteneur de média
-    mediaContainer.appendChild(link);
-    mediaContainer.appendChild(title);
-    mediaContainer.appendChild(likesContainer);
-
-    // Ajouter le conteneur de média à la galerie du photographe
-    photographersGallery.appendChild(mediaContainer);
-  });
-}
+    totalLikes += mediaItem.likes; // Ajoute le nombre de likes au total
+    
+    const heartIcon = document.createElement('button'); 
+    heartIcon.innerHTML = '❤'; 
+    heartIcon.classList.add('media-likes-button'); 
+    heartIcon.addEventListener('click', () => { 
+      mediaItem.likes += 1; 
+      likesText.textContent = mediaItem.likes; 
+      totalLikes += 1; // Ajoute un like au total
+      document.getElementById('totalLikes').textContent = `${totalLikes} ❤`;
+    }); 
+    
+    likesContainer.appendChild(likesText); 
+    likesContainer.appendChild(heartIcon); 
+    
+    const mediaInfo = document.createElement('div'); 
+    mediaInfo.classList.add('media-info'); 
+    mediaInfo.appendChild(title); 
+    mediaInfo.appendChild(likesContainer); 
+    
+    mediaContainer.appendChild(link); 
+    mediaContainer.appendChild(mediaInfo); 
+    
+    photographersGallery.appendChild(mediaContainer); }); 
+    
+    document.getElementById('totalLikes').textContent = `${totalLikes} ❤`; // Afficher le total des likes initial
+     } 
+     
+     // Initialiser le prix par jour  
+     document.getElementById('pricePerDay').textContent = `300€/jour`;
 
 async function init() {
   try {

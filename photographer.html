@@ -31,12 +31,18 @@
     </div>
 
     <section class="photograph-gallery"></section>  
+
+    <div class="photograph-footer"> 
+      <span id="totalLikes" class="total-likes"><i class="fas fa-heart"></i></span> 
+      <span id="pricePerDay" class="price-per-day"></span> 
+    </div>
+
   </main>
 
   <div id="contact_modal">
     <div class="modal">
       <div class="modal__header">
-        <h2>Contactez-moi</h2>
+        <h2>Contactez-moi <span id="photographerName"></span></h2>
         <img src="assets/icons/close.svg" class="close-img" onclick="closeModal()" alt="fermer la modale"/>
       </div>
   <form id="contact_form">
@@ -53,7 +59,7 @@
       <input id="email"  type="email" aria-placeholder="Votre adresse email"/>
     </div>
     <div>
-      <label>Message</label>
+      <label>Votre message</label>
       <textarea id="message" type="text" placeholder="Tapez votre message ici..."></textarea>
     </div>
 
