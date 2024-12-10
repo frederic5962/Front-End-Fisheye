@@ -73,9 +73,6 @@ function displayMedia(media) {
     document.getElementById('totalLikes').textContent = `${totalLikes} ❤`; // Afficher le total des likes initial
      } 
      
-     // Initialiser le prix par jour  
-     document.getElementById('pricePerDay').textContent = `300€/jour`;
-
 async function init() {
   try {
     const data = await fetch('./data/photographers.json').then(res => res.json());
@@ -105,6 +102,8 @@ async function init() {
       return;
     }
 
+    displayMedia(media); updatePricePerDay(photographer.price); // Mettre à jour le prix journalier
+
     // Trier les médias par défaut
     const sortedMedia = sortMedia(media, sort.value);
     displayMedia(sortedMedia);
@@ -120,3 +119,8 @@ async function init() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+// Fonction pour mettre à jour le prix journalier 
+function updatePricePerDay(price) { 
+document.getElementById('pricePerDay').textContent = `${price}€/jour`; 
+}
+
