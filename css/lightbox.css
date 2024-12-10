@@ -33,8 +33,8 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain; /* Maintenir les proportions sans déborder */
-  border: none; /* Enlever les bordures */
-  margin: 0; /* Pas de marges */
+  border: none; 
+  margin: 0;
 }
 
 .lightbox__media--image,
@@ -47,8 +47,8 @@
 
 .lightbox__close {
   position: absolute;
-  top: 45px; /* Ajustez cette valeur pour positionner la croix plus haut ou plus bas */
-  right: 70px; /* Ajustez cette valeur pour positionner la croix plus à gauche ou plus à droite */
+  top: 45px; /* Pour positionner la croix plus haut ou plus bas */
+  right: 70px; 
   height: 72px;
   width: 72px;
   background-color: transparent;
@@ -57,7 +57,7 @@
   color: white;
   cursor: pointer;
   color: rgba(144, 28, 28, 1);
-  z-index: 1001; /* Assurez-vous que la croix soit au-dessus de tout autre élément */
+  z-index: 1001; /* Pour s'assurer que la croix soit au-dessus de tout autre élément */
 }
 
 .lightbox__arrow {

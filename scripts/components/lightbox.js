@@ -44,6 +44,7 @@ function openLightbox(media, index) {
     lightbox.remove();
   });
 
+  // 5. Ajouter les boutons de navigation gauche et droit
   const prevButton = document.createElement('button');
   prevButton.textContent = '<';
   prevButton.classList.add('lightbox__arrow', 'lightbox__arrow--left');
@@ -53,17 +54,17 @@ function openLightbox(media, index) {
   });
 
   const nextButton = document.createElement('button');
-  nextButton.textContent = '›';
+  nextButton.textContent = '>';
   nextButton.classList.add('lightbox__arrow', 'lightbox__arrow--right');
   nextButton.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % media.length;
     showMedia(currentIndex);
   });
 
+
   lightbox.appendChild(prevButton);
   lightbox.appendChild(lightboxContent);
   lightbox.appendChild(nextButton);
-  lightbox.appendChild(lightboxContent);
   lightbox.appendChild(closeButton);
 
   // 6. Ajouter la lightbox au DOM
