@@ -5,35 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="css/photographer.css"/>
   <link rel="stylesheet" href="css/lightbox.css">
   <title>Fisheye - photographe</title>
 </head>
-<body>  
-  <header>
+<body class="photographer-page">  
+  <header role="banner">
     <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
   </header>
 
-  <main id="main">
+  <main id="main" role="main">
     <div class="photograph-header">
       <div class="photograph-header__infos"></div>
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <button class="contactButton" id="contactButton" aria-label="Contactez-moi">Contactez-moi</button>
       <div class="photograph-header__portrait"></div>
     </div> 
 
     <div class="tri-container">
     <label for="sort" class="mon-label">Trier par</label> 
     <select id="sort">
-     <option value="date">Date</option> 
-     <option value="title">Title</option>
-     <option value="popularity">Popularity</option>
-      </select>
+     <option class="trie-date" value="date">Date</option> 
+     <option class="trie-title" value="title">Title</option>
+     <option class="trie-popularity" value="popularite">Popularity</option>
+    </select>
     </div>
 
     <section class="photograph-gallery"></section>  
 
     <div class="photograph-footer"> 
-      <span id="totalLikes" class="total-likes"><i class="fas fa-heart"></i></span> 
+      <span id="totalLikes" class="total-likes"><span class="fas fa-heart" aria-hidden="true"></span></span> 
       <span id="pricePerDay" class="price-per-day"></span> 
     </div>
 
@@ -43,27 +44,27 @@
     <div class="modal">
       <div class="modal__header">
         <h2>Contactez-moi <span id="photographerName"></span></h2>
-        <img src="assets/icons/close.svg" class="close-img" onclick="closeModal()" alt="fermer la modale"/>
+        <img src="assets/icons/close.svg" class="close-img" aria-label="fermer la modale" alt="fermer la modale"/>
       </div>
   <form id="contact_form">
     <div>
       <label for="firstName">Prénom</label>
-      <input id="firstName" type="text" aria-placeholder="Votre prénom" />
+      <input id="firstName" type="text" aria-placeholder="Votre prénom" required/>
     </div>
     <div>
       <label for="lastName">Nom</label>
-      <input id="lastName" type="text" aria-placeholder="Votre nom"/>
+      <input id="lastName" type="text" aria-placeholder="Votre nom" required/>
     </div>
     <div>
       <label for="email">Email</label>
-      <input id="email"  type="email" aria-placeholder="Votre adresse email"/>
+      <input id="email"  type="email" aria-placeholder="Votre adresse email" required/>
     </div>
     <div>
-      <label>Votre message</label>
-      <textarea id="message" type="text" placeholder="Tapez votre message ici..."></textarea>
+      <label for="message">Votre message</label>
+      <textarea id="message" type="text" placeholder="Votre message" required></textarea>
     </div>
 
-    <button class="contact_button" onclick="submitForm()" type="submit">Envoyer</button>
+    <button class="contactButton"  type="submit">Envoyer</button>
   </form>     
 </div>
 
@@ -73,6 +74,6 @@
   
   
   <script type="module" src="scripts/pages/photographer.js" defer></script>
-  <script  src="scripts/utils/contactForm.js"></script> 
+  <script type="module" src="scripts/utils/contactForm.js" defer></script> 
 </body>
 </html>

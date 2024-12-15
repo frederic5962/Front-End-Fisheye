@@ -1,27 +1,24 @@
-import Image from "../models/imageModel.js";
-import Video from "../models/videoModel.js";
+import Image from '../models/imageModel.js';
+import Video from '../models/videoModel.js';
 
 /**
- * Factory function to create media objects.
- * 
- * @param {Object} data - The data object containing media information.
- * @param {string} [data.image] 
- * @param {string} [data.video] - The video file name, if the media is a video.
- * 
- * @returns {Image|Video} - Returns an instance of Image or Video based on the media type.
- * 
- * @throws {Error} Throws an error if the media type is unknown.
+ * Fonction de fabrique pour créer des objets média.
+ *
+ * @param {Object} data - L'objet contenant les informations sur le média.
+ * @param {string} [data.image] - Le nom du fichier image, si le média est une image.
+ * @param {string} [data.video] - Le nom du fichier vidéo, si le média est une vidéo.
+ *
+ * @returns {Image|Video} - Retourne une instance de Image ou de Video en fonction du type de média.
+ *
+ * @throws {Error} Lance une erreur si le type de média est inconnu.
  */
-
 export default function mediaFactory(data) {
-     
-    //créer l'objet Media avec le chemin d'accès correct
-    if (data.image) {
-        return new Image (data);
-    } else if (data.video) {
-        return new Video (data);
-    } else {
-        throw new Error("Unknown media type");
-    }
+  // Créer l'objet Media avec le chemin d'accès correct
+  if (data.image) {
+    return new Image(data);
+  } else if (data.video) {
+    return new Video(data);
+  } else {
+    throw new Error('Unknown media type');
+  }
 }
-
