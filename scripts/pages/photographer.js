@@ -1,3 +1,4 @@
+// Importations des modules nécessaires
 import mediaFactory from '../factory/mediaFactory.js';
 import PhotographerCardDOM from '../templates/photographerTemplate.js';
 import Video from '../models/videoModel.js';
@@ -15,11 +16,7 @@ const sort = document.getElementById('sort');
 
 let totalLikes = 0; // Variable pour stocker le total des likes
 
-/**
- * Affiche les médias du photographe
- *
- * @param {Array} media - La liste des médias du photographe.
- */
+// Fonction pour afficher les médias du photographe
 function displayMedia(media) {
   photographersGallery.innerHTML = '';
 
@@ -45,52 +42,57 @@ function displayMedia(media) {
     title.textContent = mediaItem.title;
     title.classList.add('media-title');
 
+    // Crée une div pour contenir les likes
     const likesContainer = document.createElement('div');
     likesContainer.classList.add('media-likes-container');
 
+    // Crée un élément span pour afficher le nombre de likes
     const likesText = document.createElement('span');
     likesText.textContent = mediaItem.likes;
     likesText.classList.add('media-likes');
     totalLikes += mediaItem.likes; // Ajoute le nombre de likes au total
 
+    // Crée un bouton pour le cœur qui permet d'ajouter des likes
     const heartIcon = document.createElement('button');
     heartIcon.innerHTML = '<span class="fas fa-heart" aria-hidden="true"></span>';
     heartIcon.classList.add('media-likes-button');
+
+    // Ajoute un événement de clic pour incrémenter les likes
     heartIcon.addEventListener('click', () => {
-      mediaItem.likes += 1;
-      likesText.textContent = mediaItem.likes;
+      mediaItem.likes += 1; // Incrémente le nombre de likes pour cet item
+      likesText.textContent = mediaItem.likes; // Met à jour le texte des likes
       totalLikes += 1; // Ajoute un like au total
+      // Met à jour l'affichage du total des likes
       document.getElementById(
         'totalLikes'
       ).innerHTML = `${totalLikes} <span class="fas fa-heart" aria-hidden="true"></span>`;
     });
 
+    // Ajoute le texte des likes et le bouton cœur au conteneur des likes
     likesContainer.appendChild(likesText);
     likesContainer.appendChild(heartIcon);
 
+    // Crée une div pour contenir les informations du média (titre et likes)
     const mediaInfo = document.createElement('div');
     mediaInfo.classList.add('media-info');
     mediaInfo.appendChild(title);
     mediaInfo.appendChild(likesContainer);
 
+    // Ajoute le lien (image ou vidéo) et les informations du média au conteneur de médias
     mediaContainer.appendChild(link);
     mediaContainer.appendChild(mediaInfo);
 
+    // Ajoute le conteneur de médias à la galerie des photographes
     photographersGallery.appendChild(mediaContainer);
   });
 
+  // Met à jour l'affichage du total des likes au chargement de la page
   document.getElementById(
     'totalLikes'
   ).innerHTML = `${totalLikes} <span class="fas fa-heart" aria-hidden="true"></span>`;
 }
 
-/**
- * Initialise la page du photographe
- *
- * @async
- * @returns {void}
- * @throws {Error} Erreur lors du chargement des médias
- */
+// Fonction pour initialiser la page du photographe
 async function init() {
   try {
     const data = await fetch('./data/photographers.json').then(res => res.json());
@@ -172,7 +174,6 @@ async function init() {
     console.error('Erreur lors du chargement des médias', error);
   }
 }
-document.addEventListener('DOMContentLoaded', init);
 
 /**
  * Met à jour le prix journalier
@@ -182,3 +183,14 @@ document.addEventListener('DOMContentLoaded', init);
 function updatePricePerDay(price) {
   document.getElementById('pricePerDay').textContent = `${price}€/jour`;
 }
+
+// Ajout de l'événement pour initialiser la page une fois le DOM chargé
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    await init(); // Verifie que init est une fonction async
+  } catch (error) {
+    console.error('Erreur lors du lancement', error);
+  
+  }
+});
+ 
