@@ -108,7 +108,7 @@ button:focus {
   font-weight: bold; /* Texte en gras */
   color: rgba(0, 0, 0, 1); /* Couleur du texte */
   position: relative; /* Positionnement relatif */
-  top: 35px; /* Positionné depuis le haut */
+  top: 0; /* Positionné depuis le haut */
 } 
 
 /* Style pour le select */
@@ -117,7 +117,7 @@ button:focus {
   height: 69px; /* Hauteur du select */
   background-color: #901c1c; /* Couleur de fond */
   border-radius: 5px; /* Coins arrondis */
-  margin-left: 100px; /* Marge à gauche */
+  margin-left: 25px; /* Marge à gauche */
   cursor: pointer; /* Curseur de la souris */
   color: white; /* Couleur du texte */
   font-weight: bold; /* Texte en gras */
