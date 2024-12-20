@@ -25,16 +25,29 @@ function closeModal() {
  */
 function submitForm() {
   document.getElementById('contact_form').onsubmit = function (event) {
-    event.preventDefault();
+    event.preventDefault(); // Empêche l'envoi du formulaire
 
-    const firstName = document.getElementById('firstName').value = '';
-    const lastName = document.getElementById('lastName').value = '';
-    const email = document.getElementById('email').value = '';
-    const message = document.getElementById('message').value = '';
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Affiche les valeurs des champs dans la console
+    console.log('Prénom:', firstName);
+    console.log('Nom:', lastName);
+    console.log('Email:', email);
+    console.log('Message:', message);
+
+    // Réinitialise les champs de formulaire après affichage
+    document.getElementById('firstName').value = '';
+    document.getElementById('lastName').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('message').value = '';
 
     const modal = document.getElementById('contact_modal');
     modal.style.display = 'none';
   };
 }
+
 
 export { displayModal, closeModal, submitForm };
