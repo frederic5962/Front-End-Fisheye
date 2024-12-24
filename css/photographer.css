@@ -302,6 +302,10 @@ form textarea {
   resize: none; 
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 @media (max-width: 768px) {
   .photograph-header {
     flex-direction: column;
