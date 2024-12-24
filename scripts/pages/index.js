@@ -1,5 +1,5 @@
 import Api from '../api/api.js';
-import PhotographerCardDOM from '../templates/photographerTemplate.js'; // Assurez-vous que c'est le bon chemin
+import PhotographerCardDOM from '../templates/photographerTemplate.js';
 import Photographer from '../models/photographersModel.js';
 
 const isHomePage = document.body.classList.contains('home_page');
@@ -7,8 +7,6 @@ const photographersSection = document.querySelector('.photographer_section');
 const photographersApi = new Api('./data/photographers.json');
 
 /**
- * Affiche les photographes sur la page d'accueil
- *
  * @async
  * @returns {void}
  * @throws {Error} Erreur lors de l'appel à l'API

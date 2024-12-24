@@ -1,7 +1,5 @@
 export default class Media {
   /**
-   * Initialise une instance de Media avec les données fournies.
-   *
    * @param {Object} data - L'objet contenant les informations sur le média.
    * @param {number} data.id - L'identifiant du média.
    * @param {number} data.photographerId - L'identifiant du photographe.

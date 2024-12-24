@@ -1,146 +1,146 @@
 body {
-  font-family: 'DM Sans', sans-serif; /* Définit la police de caractères principale */
-  margin: 0; /* Supprime les marges par défaut */
+  font-family: 'DM Sans', sans-serif; 
+  margin: 0; 
 }
 
 /* Style de la logo */
 .logo {
-  height: 50px; /* Hauteur du logo */
-  margin: 30px 0 0 130px; /* Marge autour du logo */
+  height: 50px; 
+  margin: 30px 0 0 130px; 
 }
 
-/* Style de l'en-tête du photographe */
+
 .photograph-header {
-  display: flex; /* Utilise le modèle Flexbox pour disposer les éléments */
-  justify-content: space-between; /* Espacement égal entre les éléments */
-  align-items: center; /* Aligne les éléments verticalement au centre */
-  padding: 20px; /* Ajoute du padding autour de l'en-tête */
-  height: 30vh; /* Hauteur de l'en-tête */
-  margin: 4vh 8vw; /* Marge externe */
-  background: rgba(250, 250, 250, 1); /* Couleur de fond */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 20px; 
+  height: 30vh; 
+  margin: 4vh 8vw; 
+  background: rgba(250, 250, 250, 1); 
 }
 
-/* Largeur des sections de l'en-tête */
+
 .photograph-header__infos,
 .photograph-header__portrait {
-  width: 33%; /* Définit la largeur des sections */
+  width: 33%; 
 }
 
-/* Style du nom du photographe */
+
 .photograph-header__infos h2 {
-  font-size: 48px; /* Taille de la police */
-  font-weight: 400; /* Poids de la police */
-  text-align: left; /* Aligne le texte à gauche */
-  color: rgba(211, 87, 60, 1); /* Couleur du texte */
+  font-size: 48px; 
+  font-weight: 400; 
+  text-align: left; 
+  color: rgba(211, 87, 60, 1); 
 }
 
-/* Style de la localisation du photographe */
+
 .photographer-card__location {
-  font-size: 24px; /* Taille de la police */
-  font-weight: 400; /* Poids de la police */
-  line-height: 31.25px; /* Hauteur de ligne */
-  text-align: left; /* Aligne le texte à gauche */
-  color: rgba(144, 28, 28, 1); /* Couleur du texte */
+  font-size: 24px; 
+  font-weight: 400; 
+  line-height: 31.25px;
+  text-align: left; 
+  color: rgba(144, 28, 28, 1);
 }
 
-/* Style de la devise du photographe */
+
 .photographer-card__tagline {
-  font-size: 18px; /* Taille de la police */
-  font-weight: 400; /* Poids de la police */
-  text-align: left; /* Aligne le texte à gauche */
-  color: rgba(82, 82, 82, 1); /* Couleur du texte */
+  font-size: 18px; 
+  font-weight: 400; 
+  text-align: left; 
+  color: rgba(82, 82, 82, 1); 
 }
 
-/* Style du bouton de contact */
+
 .contactButton {
-  width: 170px; /* Largeur du bouton */
-  height: 69px; /* Hauteur du bouton */
-  background-color: #901c1c; /* Couleur de fond */
-  border-radius: 5px; /* Coins arrondis */
-  color: white; /* Couleur du texte */
-  cursor: pointer; /* Curseur de la souris */
-  font-size: 20px; /* Taille de la police */
-  text-align: center; /* Aligne le texte au centre */
-  margin-top: 20px; /* Marge en haut */
+  width: 170px; 
+  height: 69px; 
+  background-color: #901c1c; 
+  border-radius: 5px; 
+  color: white; 
+  cursor: pointer; 
+  font-size: 20px;
+  text-align: center; 
+  margin-top: 20px; 
 }
 
-/* Style des éléments focussés */
+
 a:focus,
 button:focus {
-  outline: 2px solid #901c1c; /* Contour des éléments focussés */
-  outline-offset: 2px; /* Décalage du contour */
+  outline: 2px solid #901c1c; 
+  outline-offset: 2px; 
 }
 
-/* Informations du photographe */
+
 .photographer-infos {
-  display: flex; /* Utilise le modèle Flexbox pour disposer les éléments */
-  flex-direction: column; /* Aligne les éléments en colonne */
+  display: flex; 
+  flex-direction: column; 
 }
 
-/* Espacement entre les lignes de texte */
+
 .photographer-infos h2,
 .photographer-infos p {
-  margin: 5px 0; /* Marge entre les lignes de texte */
+  margin: 5px 0; 
 }
 
-/* Masquer le prix sur certaines pages */
+
 .photographer-infos .photographer-card__price {
-  display: none; /* Masque l'élément */
+  display: none; 
 }
 
-/* Style de l'image du photographe */
+
 .photograph-header img {
-  height: 200px; /* Hauteur de l'image */
-  width: 200px; /* Largeur de l'image */
-  border-radius: 50%; /* Cercle parfait */
-  margin: 0 0 0 200px; /* Marge à gauche */
+  height: 200px; 
+  width: 200px; 
+  border-radius: 50%;   
+  margin: 0 0 0 200px; 
 }
 
-/* Conteneur pour le tri des médias */
+
 .tri-container {
-  display: block; /* Affichage en bloc */
-  position: relative; /* Positionnement relatif */
-  margin-left: 140px; /* Marge à gauche */
+  display: block; 
+  position: relative; 
+  margin-left: 140px; 
 }
 
-/* Style du label pour le tri */
+
 .mon-label {
-  font-weight: bold; /* Texte en gras */
-  color: rgba(0, 0, 0, 1); /* Couleur du texte */
-  position: relative; /* Positionnement relatif */
-  top: 0; /* Positionné depuis le haut */
+  font-weight: bold; 
+  color: rgba(0, 0, 0, 1);
+  position: relative; 
+  top: 0;
 }
 
-/* Style pour le select */
+
 #sort {
-  width: 170px; /* Largeur du select */
-  height: 55px; /* Hauteur du select */
-  background-color: #901c1c; /* Couleur de fond */
-  border-radius: 5px; /* Coins arrondis */
-  margin-left: 25px; /* Marge à gauche */
-  cursor: pointer; /* Curseur de la souris */
-  color: white; /* Couleur du texte */
-  font-weight: bold; /* Texte en gras */
-  font-size: 2vh; /* Taille de la police */
-  box-sizing: border-box; /* Inclut le padding et la bordure dans les dimensions */
+  width: 170px; 
+  height: 55px; 
+  background-color: #901c1c; 
+  border-radius: 5px; 
+  margin-left: 25px; 
+  cursor: pointer; 
+  color: white; 
+  font-weight: bold; 
+  font-size: 2vh; 
+  box-sizing: border-box; 
 }
 
-/* Galerie de photos et vidéos */
+
 .photograph-gallery {
-  display: flex; /* Utilise le modèle Flexbox */
-  flex-direction: row; /* Disposition des éléments en ligne */
-  flex-wrap: wrap; /* Permet le retour à la ligne des éléments */
-  justify-content: space-around; /* Espacement des éléments */
-  margin: 3vh 5vw; /* Marges externes */
-  gap: 2vh; /* Espacement entre les éléments */
+  display: flex; 
+  flex-direction: row; 
+  flex-wrap: wrap; 
+  justify-content: space-around; 
+  margin: 3vh 5vw; 
+  gap: 2vh; 
 }
 
-/* Style pour les images et les vidéos */
+
 .photograph-gallery img,
 .photograph-gallery video {
-  width: 350px; /* Largeur des médias */
-  height: 351px; /* Hauteur des médias */
-  object-fit: cover; /* Conserver le ratio de l'image/vidéo */
+  width: 350px; 
+  height: 351px; 
+  object-fit: cover; 
 }
 
 .media-container {
@@ -190,15 +190,15 @@ button:focus {
 }
 
 .photograph-footer {
-  position: fixed; /* Fixe le conteneur */
-  bottom: 0; /* Positionné en bas de la page */
+  position: fixed;
+  bottom: 0; 
   right: 30px;
   margin-left: auto;
   display: flex;
   align-items: center;
   width: 300px;
   padding: 10px 20px;
-  background: rgba(219, 136, 118, 1); /* Couleur de fond */
+  background: rgba(219, 136, 118, 1); 
   border-radius: 5px;
   z-index: 1000;
 }
@@ -227,7 +227,7 @@ button:focus {
   height: 100%;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.8); /* Arrière-plan semi-transparent */
+  background-color: rgba(0, 0, 0, 0.8); 
   z-index: 1000;
 }
 
@@ -294,13 +294,12 @@ form textarea {
   height: 55px;
   border: none;
   border-radius: 5px;
-  padding: 10px; /* Ajouter du padding pour l'espacement interne */
-  font-size: 16px;
+  padding: 10px; 
 }
 
 form textarea {
   height: 130px;
-  resize: none; /* Empêche le redimensionnement de la zone de texte */
+  resize: none; 
 }
 
 @media (max-width: 768px) {

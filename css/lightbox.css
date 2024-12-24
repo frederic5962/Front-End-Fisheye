@@ -47,7 +47,7 @@
 
 .lightbox__close {
   position: absolute;
-  top: 45px; /* Pour positionner la croix plus haut ou plus bas */
+  top: 45px;  
   right: 70px;
   height: 72px;
   width: 72px;
@@ -56,7 +56,7 @@
   font-size: 3rem;
   cursor: pointer;
   color: rgba(144, 28, 28, 1);
-  z-index: 1001; /* Pour s'assurer que la croix soit au-dessus de tout autre élément */
+  z-index: 1001; 
 }
 
 .lightbox__close:focus {

@@ -2,19 +2,15 @@ import Image from '../models/imageModel.js';
 import Video from '../models/videoModel.js';
 
 /**
- * Ouvre la lightbox avec les médias et permet la navigation entre eux.
- *
  * @param {Array} media - La liste des médias à afficher.
  * @param {number} index - L'index du média à afficher initialement.
  */
 function openLightbox(media, index) {
-  // 1. Créer la balise dialog et la nomme lightbox pour le CSS
   const lightbox = document.createElement('dialog');
   lightbox.classList.add('lightbox');
   lightbox.setAttribute('aria-labelledby', 'lightboxLabel');
   lightbox.setAttribute('aria-describedby', 'lightboxContent');
 
-  // 2. Créer une div pour le contenu
   const lightboxContent = document.createElement('div');
   lightboxContent.classList.add('lightbox__content');
   lightboxContent.id = 'lightboxContent';
@@ -22,7 +18,6 @@ function openLightbox(media, index) {
   let currentIndex = index;
 
   function showMedia(index) {
-    // 3. Ajouter le média à la lightbox
     const mediaItem = media[index];
     lightboxContent.innerHTML = '';
 
@@ -44,7 +39,6 @@ function openLightbox(media, index) {
 
   showMedia(currentIndex);
 
-  // 4. Ajouter un bouton pour fermer la lightbox
   const closeButton = document.createElement('button');
   closeButton.textContent = 'X';
   closeButton.classList.add('lightbox__close');
@@ -54,7 +48,6 @@ function openLightbox(media, index) {
     lightbox.remove();
   });
 
-  // 5. Ajouter les boutons de navigation gauche et droit
   const prevButton = document.createElement('button');
   prevButton.textContent = '<';
   prevButton.classList.add('lightbox__arrow', 'lightbox__arrow--left');
@@ -78,10 +71,8 @@ function openLightbox(media, index) {
   lightbox.appendChild(nextButton);
   lightbox.appendChild(closeButton);
 
-  // 6. Ajouter la lightbox au DOM
   document.body.appendChild(lightbox);
 
-  // 7. Afficher la lightbox
   lightbox.showModal();
 }
 

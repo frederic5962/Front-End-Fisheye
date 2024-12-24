@@ -1,5 +1,3 @@
-// Création de la carte du photographe pour la page d'accueil et photographer
-
 export default class PhotographerCardDOM {
   /**
    * Initialise une instance de PhotographerCardDOM avec les données du photographe.
@@ -18,7 +16,6 @@ export default class PhotographerCardDOM {
   }
 
   /**
-   * Renvoie un élément DOM représentant une carte de photographe
    * @returns {HTMLElement} - Élément article avec la classe "photographer-card"
    */
   getUserCardDOM() {

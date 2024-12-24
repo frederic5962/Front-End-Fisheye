@@ -1,7 +1,5 @@
 export default class Photographer {
   /**
-   * Initialise une instance de Photographer avec les données fournies.
-   *
    * @param {Object} data - L'objet contenant les informations sur le photographe.
    * @param {number} data.id - L'identifiant du photographe.
    * @param {string} data.name - Le nom du photographe.
@@ -22,7 +20,6 @@ export default class Photographer {
   }
 
   /**
-   * Renvoie l'élément HTML de l'image du portrait du photographe.
    * @returns {HTMLElement} L'élément image avec le texte alternatif.
    */
   createPortraitElement() {

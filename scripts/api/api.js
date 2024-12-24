@@ -1,6 +1,3 @@
-/**
- * Classe pour interagir avec l'API des photographes.
- **/
 export default class Api {
   /**
    * * Crée une instance de Api.
@@ -20,13 +17,12 @@ export default class Api {
       return data;
     } catch (error) {
       console.log(error);
-      // Afficher un message d'erreur accessible
       const errorMessage = document.createElement('div');
       errorMessage.setAttribute('role', 'alert');
       errorMessage.innerText =
         'Une erreur est survenue lors de la récupération des photographes.';
       document.body.appendChild(errorMessage);
-      throw error; // Rejeter la promesse avec l'erreur pour gérer les erreurs en aval
+      throw error; 
     }
   }
 }
