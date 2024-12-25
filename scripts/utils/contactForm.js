@@ -1,58 +1,5 @@
-/**
- * Piège le focus à l'intérieur de l'élément donné.
- *
- * @param {HTMLElement} element - L'élément dans lequel piéger le focus.
- */
-function trapFocus(element) {
-  const focusableElements =
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-  const focusableContent = element.querySelectorAll(focusableElements);
-  const firstFocusableElement = focusableContent[0];
-  const lastFocusableElement = focusableContent[focusableContent.length - 1];
-
-  /**
-   * Gestionnaire d'événement clavier pour piéger le focus dans l'élément.
-   *
-   * @param {KeyboardEvent} event - L'événement clavier.
-   */
-  const trapHandler = function (event) {
-    const isTabPressed = event.key === 'Tab' || event.keyCode === 9;
-
-    if (!isTabPressed) {
-      return;
-    }
-
-    if (event.shiftKey) {
-      // Focus précédent
-      if (document.activeElement === firstFocusableElement) {
-        lastFocusableElement.focus();
-        event.preventDefault();
-      }
-    } else {
-      // Focus suivant
-      if (document.activeElement === lastFocusableElement) {
-        firstFocusableElement.focus();
-        event.preventDefault();
-      }
-    }
-  };
-
-  document.addEventListener('keydown', trapHandler);
-
-  // Sauvegarde le gestionnaire dans l'élément pour le retirer plus tard
-  element._trapHandler = trapHandler;
-}
-
-/**
- * Supprime le gestionnaire d'événement clavier qui piège le focus
- * dans la modale de contact.
- */
-function removeTrapFocus() {
-  const modal = document.getElementById('contact_modal');
-  document.removeEventListener('keydown', modal._trapHandler);
-}
-
-function displayModal(fullName) {
+function openModal(fullName) {
+  console.log('openModal called'); // Log ajouté
   const modal = document.getElementById('contact_modal');
   modal.style.display = 'block';
 
@@ -65,35 +12,45 @@ function displayModal(fullName) {
   if (firstInput) {
     firstInput.focus();
   }
-
-  // Piéger le focus dans la modale
-  trapFocus(modal);
 }
 
 function closeModal() {
+  console.log('closeModal called'); // Log ajouté
   const modal = document.getElementById('contact_modal');
   modal.style.display = 'none';
 
   document.body.classList.remove('modal-open');
-
-  removeTrapFocus();
 }
 
-const closeImg = document.querySelector('.close-img');
-closeImg.addEventListener('click', closeModal);
-closeImg.addEventListener('keydown', event => {
-  if (event.key === 'Enter' || event.keyCode === 13) {
-    closeModal();
+document.addEventListener('DOMContentLoaded', () => {
+  const closeImg = document.querySelector('.close-img');
+  if (closeImg) {
+    console.log('Close button found'); // Log ajouté
+    closeImg.addEventListener('click', closeModal);
+    closeImg.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.keyCode === 13) {
+        closeModal();
+      }
+    });
+  } else {
+    console.error('Close button not found'); // Log ajouté
+  }
+
+  const contactButton = document.getElementById('contactButton');
+  if (contactButton) {
+    console.log('Contact button found'); // Log ajouté
+    contactButton.addEventListener('click', () => {
+      console.log('Contact button clicked'); // Log ajouté
+      openModal('Nom du Photographe');
+    });
+  } else {
+    console.error('Contact button not found'); // Log ajouté
   }
 });
 
-document
-  .getElementById('contactButton')
-  .addEventListener('click', () => displayModal('Nom du Photographe'));
-
 function submitForm() {
   document.getElementById('contact_form').onsubmit = function (event) {
-    event.preventDefault(); // Empêche l'envoi du formulaire
+    event.preventDefault();
 
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
@@ -114,4 +71,4 @@ function submitForm() {
   };
 }
 
-export { displayModal, closeModal, submitForm };
+export { openModal, closeModal, submitForm };

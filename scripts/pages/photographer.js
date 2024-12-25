@@ -4,7 +4,7 @@ import Video from '../models/videoModel.js';
 import Image from '../models/imageModel.js';
 import { openLightbox } from '../components/lightbox.js';
 import { sortMedia } from '../utils/sortUtils.js';
-import { displayModal, closeModal, submitForm } from '../utils/contactForm.js';
+import { openModal, closeModal, submitForm } from '../utils/contactForm.js'; 
 
 const photographerHeaderInfos = document.querySelector('.photograph-header__infos');
 const photographerHeaderPortrait = document.querySelector('.photograph-header__portrait');
@@ -17,6 +17,7 @@ let totalLikes = 0;
 
 function displayMedia(media) {
   photographersGallery.innerHTML = '';
+  totalLikes = 0; 
 
   media.forEach((mediaItem, index) => {
     const mediaContainer = document.createElement('div');
@@ -24,17 +25,16 @@ function displayMedia(media) {
 
     const link = document.createElement('a');
     link.href = '#';
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      openLightbox(media, index);
+    });
 
     if (mediaItem instanceof Image) {
       link.innerHTML = `<img src="${mediaItem.image}" alt="${mediaItem.title}">`;
     } else if (mediaItem instanceof Video) {
       link.innerHTML = `<video controls src="${mediaItem.video}" title="${mediaItem.title}"></video>`;
     }
-
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      openLightbox(media, index);
-    });
 
     const title = document.createElement('h3');
     title.textContent = mediaItem.title;
@@ -46,7 +46,7 @@ function displayMedia(media) {
     const likesText = document.createElement('span');
     likesText.textContent = mediaItem.likes;
     likesText.classList.add('media-likes');
-    totalLikes += mediaItem.likes;
+    totalLikes += mediaItem.likes; 
 
     const heartIcon = document.createElement('button');
     heartIcon.innerHTML = '<span class="fas fa-heart" aria-hidden="true"></span>';
@@ -55,11 +55,8 @@ function displayMedia(media) {
     heartIcon.addEventListener('click', () => {
       mediaItem.likes += 1;
       likesText.textContent = mediaItem.likes;
-      totalLikes += 1;
-
-      document.getElementById(
-        'totalLikes'
-      ).innerHTML = `${totalLikes} <span class="fas fa-heart" aria-hidden="true"></span>`;
+      totalLikes += 1; 
+      document.getElementById('totalLikes').innerHTML = `${totalLikes} <span class="fas fa-heart" aria-hidden="true"></span>`;
     });
 
     likesContainer.appendChild(likesText);
@@ -76,9 +73,7 @@ function displayMedia(media) {
     photographersGallery.appendChild(mediaContainer);
   });
 
-  document.getElementById(
-    'totalLikes'
-  ).innerHTML = `${totalLikes} <span class="fas fa-heart" aria-hidden="true"></span>`;
+  document.getElementById('totalLikes').innerHTML = `${totalLikes} <span class="fas fa-heart" aria-hidden="true"></span>`;
 }
 
 async function init() {
@@ -118,9 +113,7 @@ async function init() {
       return;
     }
 
-    displayMedia(media);
-    updatePricePerDay(photographer.price);
-
+    // --- Modification : Appel de displayMedia une seule fois ---
     const sortedMedia = sortMedia(media, sort.value);
     displayMedia(sortedMedia);
 
@@ -129,14 +122,12 @@ async function init() {
       displayMedia(sortedMedia);
     });
 
-    const [firstName, ...lastNameArray] = photographer.name.split(' ');
-    const lastName = lastNameArray.join(' ');
-    const fullName = `${firstName} ${lastName}`;
-
+    // ---  Gestionnaire d'événement pour le bouton "Contactez-moi" ---
     const contactButton = document.getElementById('contactButton');
     if (contactButton) {
       contactButton.addEventListener('click', () => {
-        displayModal(fullName);
+        const photographerName = photographer.name; 
+        openModal(photographerName); 
       });
     } else {
       console.error('Bouton de contact introuvable');
@@ -146,7 +137,7 @@ async function init() {
       document.body.appendChild(errorMessage);
     }
 
-    submitForm();
+    submitForm(); 
 
     document.querySelector('.close-img').addEventListener('click', closeModal);
   } catch (error) {
@@ -154,9 +145,7 @@ async function init() {
   }
 }
 
-/**
- * @param {number} price - Le prix journalier du photographe.
- */
+
 function updatePricePerDay(price) {
   document.getElementById('pricePerDay').textContent = `${price}€/jour`;
 }

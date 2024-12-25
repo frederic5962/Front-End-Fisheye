@@ -213,7 +213,6 @@ button:focus {
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.8); 
   z-index: 1000;
-  display: flex; 
 }
 .modal {
   border-radius: 5px;
@@ -305,9 +304,7 @@ form textarea {
   text-align: center;
 }
 
-body.modal-open {
-  overflow: hidden;
-}
+
 
 @media (max-width: 768px) {
   .photograph-header {
